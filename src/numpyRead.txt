@@ -1,0 +1,19 @@
+/*
+ * numpyRead.h
+ *
+ *  Created on: 4 Jul 2019
+ *      Author: tarek
+ */
+
+#ifndef NUMPYREAD_TXT_
+#define NUMPYREAD_TXT_
+
+class numpyRead{
+public:
+
+
+};
+
+
+
+#endif /* NUMPYREAD_TXT_ */
