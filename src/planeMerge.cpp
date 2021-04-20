@@ -1,309 +1,179 @@
-//============================================================================
-// Name        : planeMerge.cpp
-// Author      : Tarek Bouamer
-// Version     :
-// Copyright   : ICG TU GRAZ
-// Description :
-//============================================================================
+// 	BSD 3-Clause License
+//
+// 	Copyright (c) 2021, Tarek Bouamer
+// 	All rights reserved.
+//
+// 	Redistribution and use in source and binary forms, with or without
+// 	modification, are permitted provided that the following conditions are met:
+//
+// 	1. Redistributions of source code must retain the above copyright notice, this
+//  list of conditions and the following disclaimer.
+//
+// 	2. Redistributions in binary form must reproduce the above copyright notice,
+//	this list of conditions and the following disclaimer in the documentation
+//  and/or other materials provided with the distribution.
+//
+//	3. Neither the name of the copyright holder nor the names of its
+//  contributors may be used to endorse or promote products derived from
+//  this software without specific prior written permission.
 
-#include <opencv2/opencv.hpp>
-#include "opencv2/highgui/highgui.hpp"
+//	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+//	AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+//	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+//	FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+//	DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+//	SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+//	CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+//	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+//	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Author: Tarek Bouamer (tarekbouamer@icg.tugraz.at)
 
-#include <boost/filesystem.hpp>
-#include <eigen3/Eigen/Dense>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <complex>
+#include <cstdlib>
+#include <map>
+#include <set>
 #include <math.h>
 
-#include "lib/seed/SeedsRevised.h"
-#include "lib/seed/Tools.h"
+#include <glog/logging.h>
 
 #include <boost/filesystem.hpp>
 #include <boost/timer.hpp>
 #include <boost/program_options.hpp>
 
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+#include <eigen3/Eigen/Dense>
+
+#include "lib/seed/SeedsRevised.h"
+#include "lib/seed/Tools.h"
 #include "lib/cnpy/cnpy.h"
-#include <complex>
-#include <cstdlib>
-#include <map>
-#include <set>
 
-#include "IO/paramsCam.h"
-#include <fstream>
-
-#include <iostream>
-#include <string>
+#include "option_manager.h"
+#include "logging.h"
 
 #include "database.h"
-#include "scene.h"
+#include "simple_merge.h"
 #include "superpixels.h"
 
 
 
-struct Superpixel{
-
-	int id;
-	int assignedClass;
-	cv::Mat pos;
-	cv::Vec3b label;
-	unsigned int numPixels;
-	std::vector<int> hist;   // nb classes + non-planes  (N+1)
-
-	Superpixel(int ID, int row, int high, int P)
-	{
-		label= cv::Vec3b(0,0,0);
-		assignedClass = -1;
-		id =ID;
-		pos = cv::Mat::zeros(row, high, CV_32SC1);
-		numPixels=0;
-		std::vector<int> arr(P+1,0);
-		hist = arr;
-	}
-};
-
-
-std::vector<cv::Mat> mergeSuper(
-									const cv::Mat& classes,
-									const cv::Mat& labels,
-									std::vector<cv::Mat>& planes
-									)
+int RunDatabase(int argc, char** argv)
 {
-	const int numSuperpixels= *(std::max_element(classes.begin<ushort>(),classes.end<ushort>())) +1 ;
-	std::vector<Superpixel*> listSuperpixels(numSuperpixels);
+	OptionManager options;
 
-	std::cout << "	numSuperpixels  	" << numSuperpixels 	<< std::endl;
-	std::cout << "	rows			  	" << classes.rows		<< std::endl;
-	std::cout << "	cols			  	" << classes.cols 		<< std::endl;
-	std::cout << "	num planes		  	" << planes.size() 		<< std::endl;
+	options.Parse(argc, argv);
 
+	Database database(*options.database_path);
 
-	// init list
+	std::cout << "database  " << database.NumImages() << std::endl;
 
-	for (int i=0; i< numSuperpixels; i++)
-		listSuperpixels[i] = new Superpixel(i, classes.rows, classes.cols, planes.size());
-
-	for(int row=0; row< classes.rows; row++)
-	{
-		for(int col=0; col< classes.cols;col++)
-		{
-			listSuperpixels[classes.at<ushort>(row,col)]->numPixels++;
-			listSuperpixels[classes.at<ushort>(row,col)]->label = labels.at<cv::Vec3b>(row,col);
-			listSuperpixels[classes.at<ushort>(row,col)]->pos.at<ushort>(row,col)=255;
-		}
+	for (auto& it : database.database) {
+    	std::cout << it << std::endl;
 	}
+	return EXIT_SUCCESS;
+}
 
-	std::vector<cv::Mat>::iterator plane = planes.begin();
-	// 	// fill  histogram of plane
+int RunSEED(int argc, char** argv)
+{
+	OptionManager options;
+	options.Parse(argc, argv);
+  
+	SuperpixelsGenerator superpixels_generator(*options.database_path);
+  superpixels_generator.Run();
 
-	int planeIdx = 0;
-	for (; plane != planes.end(); ++plane  )
-	{
-		for(int row=0; row< plane->rows; row++)
-		{
-			for(int col=0; col< plane->cols;col++)
-			{
-				if(plane->at<float>(row,col)!=0)
-				{
-					listSuperpixels[classes.at<ushort>(row,col)]->hist[planeIdx]++;
-				}
-			}
-		}
+	return EXIT_SUCCESS;
+}
 
-		planeIdx++;
-	}
-	// 	// fill  histogram of non planar
+int RunSimpleMerge(int argc, char** argv)
+{
+	OptionManager options;
+	options.Parse(argc, argv);
+  
+  // generate superpixels first 
+	SuperpixelsGenerator superpixels_generator(*options.database_path);
+  superpixels_generator.Run();
 
-	for (int i=0; i< numSuperpixels; i++)
-	{
-		int sum = 0;
-		for (std::vector<int>::iterator iter = listSuperpixels[i]->hist.begin();
-				iter != listSuperpixels[i]->hist.end();
-				++iter)
-		{
-			sum += *iter;
-		}
-
-		listSuperpixels[i]->hist[planes.size()]= listSuperpixels[i]->numPixels - sum;
-	}
-
-	std::vector<int> 		planeID(planes.size(),-1);
-	std::vector<cv::Vec3b> 	planergb(planes.size(),(0,0,0));
-
-	for (int i=0; i< numSuperpixels; i++)
-	{
-		int maxIDX = std::max_element(listSuperpixels[i]->hist.begin(),listSuperpixels[i]->hist.end()) - listSuperpixels[i]->hist.begin();
-		double score = listSuperpixels[i]->hist[maxIDX]/ (double) listSuperpixels[i]->numPixels;
-
-		if ( maxIDX< planes.size() && score > 0.70)
-		{
-			listSuperpixels[i]->assignedClass=maxIDX;
-			if (planeID[maxIDX] == -1)
-			{
-				planeID[maxIDX]=listSuperpixels[i]->id;
-				planergb[maxIDX]=listSuperpixels[i]->label;
-			}
-		}
-		else
-		{
-			listSuperpixels[i]->assignedClass=planes.size();
-		}
-	}
-
-	cv::Mat newClasses	= classes;
-	cv::Mat newLabels	= labels;
-
-	std::vector<cv::Mat> results;
-
-
-	for(int row=0; row< newClasses.rows; row++)
-	{
-		for(int col=0; col< newClasses.cols;col++)
-		{
-			if (listSuperpixels[classes.at<ushort>(row,col)]->assignedClass < planes.size())
-			{
-				newClasses.at<ushort>(row,col)	= planeID[listSuperpixels[classes.at<ushort>(row,col)]->assignedClass];
-				newLabels.at<cv::Vec3b>(row,col) 	= planergb[listSuperpixels[classes.at<ushort>(row,col)]->assignedClass];
-			}
-
-		}
-	}
-	results.push_back(newClasses);
-	results.push_back(newLabels);
-
-
-
-	for (int i=0; i< numSuperpixels; i++)
-		delete listSuperpixels[i];
-
-
-	return results;
+  // run simple merge
+  SimpleMerge simple_merge(*options.database_path);
+  simple_merge.Run();
+	return EXIT_SUCCESS;
 }
 
 
+typedef std::function<int(int, char**)> command_func_t;
 
+int ShowHelp(const std::vector<std::pair<std::string, command_func_t>>& commands) {
+  std::cout << "-- Multi View Depth Completion and Scene Parsing " << std::endl;
 
-void doSuperMerge(	Scene& scene,
-					Database& db,
+  std::cout << "Usage:" << std::endl;
+  std::cout << "  SceneParser [command] [options]" << std::endl << std::endl;
 
-					std::vector< boost::filesystem::path >& imagesPathVect	,
-					std::vector< boost::filesystem::path >& masksPathVect	,
-					std::vector< boost::filesystem::path >& labelsPathVect	,
-					std::vector< boost::filesystem::path >& classesPathVect
+  std::cout << "Documentation:" << std::endl;
+  std::cout << "  Not yet !!!!!!!!!!!!" << std::endl << std::endl;
 
-					)
-{
+  std::cout << "Example usage:" << std::endl;
+  std::cout << "  SceneParser help [ -h, --help ]" << std::endl;
+  std::cout << "  SceneParser database " << std::endl;
 
-	std::vector< boost::filesystem::path >::iterator mask		= masksPathVect.begin()		;
-	std::vector< boost::filesystem::path >::iterator label	 	= labelsPathVect.begin()	;
-	std::vector< boost::filesystem::path >::iterator classe 	= classesPathVect.begin()	;
+  std::cout << "  help" << std::endl;
+  for (const auto& command : commands) {
+    std::cout << "  " << command.first << std::endl;
+  }
+  std::cout << std::endl;
 
-	std::vector<std::string>::iterator imageName = db.nameList.begin();
-
-
-	std::vector<cv::Mat> 	maskImage;
-	cv::Mat					labelImage;
-	cv::Mat					classeImage;
-
-	std::vector<cv::Mat> results;
-
-
-	for(; mask != masksPathVect.end(); ++mask)
-	{
-
-		labelImage		= scene.readImages(		label->string()						);
-		classeImage		= scene.readCSV(		classe->string(), 	labelImage		);
-		maskImage 		= scene.readNumpy(		mask->string(), 	labelImage		) ;
-
-
-		results = mergeSuper(classeImage,labelImage,maskImage);
-
-
-		cv::imwrite(db.outputDir + "/" + *imageName +"_labels_.png", results[1]);
-
-		boost::filesystem::fstream csvFile;
-		csvFile.open((db.outputDir + "/" + *imageName +".csv").c_str(), boost::filesystem::ofstream::out);
-
-		assert(csvFile);
-
-		for (int i = 0; i < results[0].rows; i++) {
-			for (int j = 0; j < results[0].cols; j++) {
-				csvFile << results[0].at<ushort>(i,j);
-
-				if (j < results[0].cols - 1) {
-					csvFile << ",";
-				}
-			}
-
-			csvFile << "\n";
-		}
-
-		csvFile.close();
-
-		results.clear();
-
-		++label;
-		++classe;
-		++imageName;
-	}
-
+  return EXIT_SUCCESS;
 }
 
 
-
-int main(int argc, char** argv){
-	/*
-	 * The module reads automatcilly from Input folder the inputs (1) plane masks (.npy) and superpixels (.csv) and create
-	 * new plane segmentation (.csv) in Outputs folder
-	 * Superpixel.h load RGB images (.JPG) and generate superpixels.
-	 * Database.h reads   imageNamesList.txt and load the corresponding maps directories (RGB ,  Masks , superpixels , depth , normal, quality, ....)
-	 * Scene.h load images as Mat format
-    */
-
-	Scene scene;
-	Database db;
-	ParamsCam paramsCam;
-
-	std::vector< boost::filesystem::path > imagesPathVect;
-	std::vector< boost::filesystem::path > masksPathVect;
-	std::vector< boost::filesystem::path > labelsPathVect;
-	std::vector< boost::filesystem::path > classesPathVect;
-
-	db.inputDir = "../Inputs";
-	db.outputDir = "../Outputs";
-
-	db.readNameList();
+////////////////////////////////////////////////////////////////////////////////
+// Main
+////////////////////////////////////////////////////////////////////////////////
 
 
-	imagesPathVect 		= db.getPathList(0); 	// images only
-	masksPathVect  		= db.getPathList(1); 	// masks only npy
+int main(int argc, char** argv) {
+  // Initialize Google's logging library.
+  InitializeGlog(argv);
 
+  std::vector<std::pair<std::string, command_func_t>> commands;
 
+	// Commands parser
 
+	commands.emplace_back("database", 	&RunDatabase);
+	commands.emplace_back("superpixels", &RunSEED);
+	commands.emplace_back("simple_merge", &RunSimpleMerge);
 
-	Superpixels(scene, db, imagesPathVect);    // superpixel   SEEED
+	if (argc == 1) {
+    return ShowHelp(commands);
+  }
 
-	labelsPathVect	  	= db.getPathList(2); 	// labels (superpixel)  RGB  only
-	classesPathVect  	= db.getPathList(3); 	// classes (superpixel) Grey only
+  const std::string command = argv[1];
+  if (command == "help" || command == "-h" || command == "--help") {
+    return ShowHelp(commands);
+  } else {
+    command_func_t matched_command_func = nullptr;
+    for (const auto& command_func : commands) {
+      if (command == command_func.first) {
+        matched_command_func = command_func.second;
+        break;
+      }
+    }
+    if (matched_command_func == nullptr) {
+      std::cerr << "ERROR: Command not recognized. To list the available commands, run `SceneParser help`." << std::endl;
+      return EXIT_FAILURE;
+    } else {
+      int command_argc = argc - 1;
+      char** command_argv = &argv[1];
+      command_argv[0] = argv[0];
+      return matched_command_func(command_argc, command_argv);
+    }
+  }
 
-	std::vector< cv::Mat > classesImages;
-
-
-	std::cout << 	"paths loaded" 									<< std::endl;
-	std::cout << 	"imagesPathVect" 	<< imagesPathVect.size()	<< std::endl;
-	std::cout << 	"masksPathVect" 	<< masksPathVect.size()		<< std::endl;
-	std::cout << 	"labelsPathVect" 	<< labelsPathVect.size()	<< std::endl;
-	std::cout << 	"classesPathVect" 	<< classesPathVect.size()	<< std::endl;
-
-
-
-
-
-	doSuperMerge(scene, db, imagesPathVect,masksPathVect, labelsPathVect, classesPathVect);
-
-
-
-
-	std::cout << " Done .... " << std::endl;
-
-	return 0;
-
+  return ShowHelp(commands);
 }
 

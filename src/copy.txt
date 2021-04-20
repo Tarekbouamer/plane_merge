@@ -1,0 +1,23 @@
+	boost::filesystem::path subDir("benchmark");
+	boost::filesystem::path benchmark=currentPath / subDir;
+
+	// 9 files paths to get()
+	boost::filesystem::path _depth("DSC_1535_depth_.png");
+	boost::filesystem::path _depthFinal("DSC_1535_depth__final.png");
+	boost::filesystem::path _depthFinalPlane("DSC_1535_depth__final_np.png");
+	boost::filesystem::path _depthFinalOri("DSC_1535_depth__final_ori.png");
+	boost::filesystem::path _image("DSC_1535_image_.png");
+	boost::filesystem::path _planeMask("DSC_1535_plane_masks_.npy");
+	boost::filesystem::path _planePram("DSC_1535_plane_parameters_.npy");
+	boost::filesystem::path _planeSegment("DSC_1535_segmentation_.png");
+	boost::filesystem::path _maskRcnn("DSC_1535_segmentation__final.png");
+
+	boost::filesystem::path depth           = benchmark / _depth;
+	boost::filesystem::path depthFinal      = benchmark / _depthFinal;
+	boost::filesystem::path depthFinalPlane = benchmark / _depthFinalPlane;
+	boost::filesystem::path depthFinalOri   = benchmark / _depthFinalOri;
+	boost::filesystem::path image           = benchmark / _image;
+	boost::filesystem::path planeMask       = benchmark / _planeMask;
+	boost::filesystem::path planePram       = benchmark / _planePram;
+	boost::filesystem::path planeSegment    = benchmark / _planeSegment;
+	boost::filesystem::path maskRcnn        = benchmark / _maskRcnn;
