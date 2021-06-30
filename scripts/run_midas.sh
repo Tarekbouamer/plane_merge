@@ -1,9 +1,4 @@
 
-model_name=mseg-3m
-model_path=./logs/mseg-3m.pth
-config=mseg_semantic/config/test/default_config_360_ms.yaml
-
-
 MidasNetDir=/home/torres/3D/MiDaS
 Workspace=/home/torres/3D/datasets/eth3d
 

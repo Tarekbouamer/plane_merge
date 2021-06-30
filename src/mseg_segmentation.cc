@@ -16,7 +16,7 @@ MsegSegmentation::MsegSegmentation(const std::string& mseg_seg_path):
 	std::vector<std::string> lines = ReadTextFileLines(mseg_classes.c_str());
 
 	// classes map
-	int key = 0;
+	int key = 1;
 	std::unordered_map< int, std::string> mseg_classes_map; 
 
 	for(auto& item: lines){
@@ -26,23 +26,6 @@ MsegSegmentation::MsegSegmentation(const std::string& mseg_seg_path):
 
 	std::cout << mseg_classes_map.at(11)<< std::endl;
 
-	// boost::filesystem::path full_path(boost::filesystem::current_path());
-	// std::cout << "constructor" << std::endl;
-
-	// if (file.is_open()) {
-
-  // 	std::string line;
-    
-	// 	std::cout << "lines" << std::endl;
-
-	// 	while (std::getline(file, line)) {
-
-	// 		std::cout << line << std::endl;
-  //   }
-		
-	// 	//
-  //   file.close();
-	// }
 }
 		
 

@@ -45,7 +45,22 @@ public:
 	void EstimatePlaneParameters(superpixels_t& list_supepixels);
 
 
-	void SemanticLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels);
+	void ProjectHullToPlane(Superpixel* s, const Eigen::Matrix3f inv_K);
+
+
+	void MonteCarloPertutbation(Image& item, superpixels_t& list_supepixels);
+
+
+	void EstimateMonoPlaneParameters(superpixels_t& list_supepixels);
+
+
+	void LoadSemanticLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels);
+
+
+	void LoadPlaneLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels);
+
+
+	void LoadMonoDepth(Image& item, cv::Mat& cls, superpixels_t& list_supepixels);
 
 
 	superpixels_t HasPlanes(superpixels_t& list_supepixels);
@@ -54,7 +69,7 @@ public:
 	superpixels_t GetPlanarCandidates(superpixels_t& list_supepixels);
 
 
-	void PlaneLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels);
+	void PlaneLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels, cv::Mat& lbl);
 
 
 	void WriteNewLabels(Image& item,  cv::Mat& cls, cv::Mat& lbl, superpixels_t& list_supepixels);

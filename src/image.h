@@ -13,10 +13,10 @@ struct CameraParam
 	size_t W;
 	size_t H;
 
-	Eigen::Vector3d T;
-	Eigen::Matrix3d R;
-	Eigen::Matrix3d A;
-	Eigen::Matrix3d Inv_A;
+	Eigen::Vector3f T;
+	Eigen::Matrix3f R;
+	Eigen::Matrix3f A;
+	Eigen::Matrix3f Inv_A;
 	
 	int id;
 };
@@ -27,7 +27,7 @@ class Image{
   	
 		Image(const std::string& image_path, const std::string& camera_path, 
 					const size_t width, const size_t height,
-        	const Eigen::Matrix3d K, const Eigen::Matrix3d R, const Eigen::Vector3d T);
+        	const Eigen::Matrix3f K, const Eigen::Matrix3f R, const Eigen::Vector3f T);
 		
 
 		cv::Mat Read();
@@ -39,13 +39,17 @@ class Image{
 		size_t GetHeight() const;
 		size_t GetChannels() const;
 
-		const Eigen::Matrix3d GetR() const;
-		const Eigen::Vector3d GetT() const;
-		const Eigen::Matrix3d GetK() const;
+		const Eigen::Matrix3f GetR() const;
+		const Eigen::Vector3f GetT() const;
+		const Eigen::Matrix3f GetK() const;
 		
-		const float* GetP() const;
-		const float* GetInvP() const;
+		const Eigen::Matrix3x4f GetP() const;
+		const Eigen::Matrix3x4f GetInvP() const;
 		
+		Eigen::Matrix3x4f ComposeProjectionMatrix(const Eigen::Matrix3f& R, const Eigen::Vector3f& T);
+		Eigen::Matrix3x4f InvertProjectionMatrix(const Eigen::Matrix3x4f& proj_matrix);;
+		Eigen::Vector3f ProjectionCenterFromMatrix(const Eigen::Matrix3x4f& proj_matrix);
+
 		const float* GetViewingDirection() const;
 
 		void Rescale(const float factor);
@@ -68,28 +72,12 @@ class Image{
 		// Image  data
 		size_t  _width, _height, _channels;
 
-		Eigen::Matrix3d _K;
-		Eigen::Matrix3d _R;
-		Eigen::Vector3d _T;
+		Eigen::Matrix3f _K;
+		Eigen::Matrix3f _R;
+		Eigen::Vector3f _T;
 
-		float P_[12];
-		float inv_P_[12];
+		Eigen::Matrix3x4f _P;
+		Eigen::Matrix3x4f _inv_P;
 
 };
-
-
-// void ComputeRelativePose(const float R1[9], const float T1[3],
-//                          const float R2[9], const float T2[3], float R[9],
-//                          float T[3]);
-
-// void ComposeProjectionMatrix(const float K[9], const float R[9],
-//                              const float T[3], float P[12]);
-
-// void ComposeInverseProjectionMatrix(const float K[9], const float R[9],
-//                                     const float T[3], float inv_P[12]);
-
-// void ComputeProjectionCenter(const float R[9], const float T[3], float C[3]);
-
-// void RotatePose(const float RR[9], float R[9], float T[3]);
-
 #endif //IMAGE_H_

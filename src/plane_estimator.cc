@@ -25,8 +25,7 @@ void PlaneModel::Residuals(	const std::vector<X_t>& points3D,
 	if (points3D.size() != residuals->size()){	std::cout << "Error" <<std::endl;		};
 
 	for(unsigned int i=0; i<points3D.size(); i++){
-		(*residuals)[i] = fabs(std::get<1>(proj_matrix).dot(points3D[i]-std::get<0>(proj_matrix)) /qual3D[i]  );
+		(*residuals)[i] = fabs(std::get<1>(proj_matrix).dot(points3D[i]-std::get<0>(proj_matrix)) /(qual3D[i])  );
 	}
 }
-
 

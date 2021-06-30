@@ -52,6 +52,7 @@ class Database {
 	
 	std::string plane_seg_folder 		= "/stereo/plane_segmentation/";
 	std::string mseg_seg_folder 		= "/stereo/semantic_segmentation/";
+	std::string mono_depth_folder 	= "/stereo/mono_depth/";
 
 	std::string test 		= "/stereo/test/";
 

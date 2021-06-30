@@ -23,11 +23,11 @@
 
 struct SuperpixelsOptions {
 
-	int		NumSuperpixels		=	800;
+	int		NumSuperpixels		=	200;
 	int 	NumberOfBins 			= 5;
-	int		NeighborhoodSize 	= 1;
+	int		NeighborhoodSize 	= 4;
 	float	MinimumConfidence = 0.500000001;
-	int 	Iterations 				= 50;
+	int 	Iterations 				= 10;
 	float SpatialWeight 		= 0.25;
 
 };
@@ -43,14 +43,25 @@ struct Superpixel{
 	
 	std::vector<Eigen::Vector2i> points2D;
 	std::vector<Eigen::Vector3f> points3D;
+	
+	std::vector<cv::Point> contour2D;  // check "contour_map", 
+	std::vector<cv::Point> hull2D;
+
+	std::vector<Eigen::Vector3f> hull3D;
+
 
 	std::vector<float> quality3D;
 	std::vector<float> confs3D;
+
+	// mono depth
+	std::vector<Eigen::Vector3f> mono_points3D;
+	std::vector<float> mono_quality3D;
 
 	cv::Vec3b labelColor;
 	cv::Mat appearanceHistogram;
 
 	std::set<Superpixel*> neighbors;
+	std::map<Superpixel*, double>  contour_map; 
 
 	// estimation
 	bool estimated_plane;
@@ -62,12 +73,18 @@ struct Superpixel{
 	bool planarlbl;
 	unsigned int planarPixels;
 	int plane_id;
+	cv::Mat planarHistogram = cv::Mat::zeros(cv::Size(1, 255), CV_32F);	
 
 	// semantic lbl
 	std::unordered_map<int , double> semantics; 
 	int num_semantic_classes = 194;
-	cv::Mat semanticHistogram = cv::Mat::zeros(cv::Size(3, 194), CV_32F);	
+	cv::Mat semanticHistogram = cv::Mat::zeros(cv::Size(1, 194), CV_32F);	
 
+	// estimation
+	bool mono_plane;
+	std::tuple<Eigen::Vector3f, Eigen::Vector3f, float> mono_plane_params;
+	float mono_plane_confidence;
+	std::vector<char> mono_plane_inlier_mask;
 
 	// constructor
 	Superpixel(unsigned int ID){
@@ -82,20 +99,26 @@ struct Superpixel{
 		planarlbl = false;
 		planarPixels = 0 ;
 		plane_id = -1;
+		
 		//
 		estimated_plane = false;
-		estimated_plane_confidence = 0;
+		estimated_plane_confidence = 0.;
 
+		//
+		mono_plane = false;
+		mono_plane_confidence = 0.;
+		
 		// init semantic map
-
 		int k = 0;
 		
 		while(k < num_semantic_classes){	
 			semantics.insert({ k, 0 });	
 			k++; 
 		}
+	};
 
-	}
+	bool operator()(const Superpixel& a, const Superpixel& b) const { a.estimated_plane_confidence < b.estimated_plane_confidence; }
+
 };
 
 // image
@@ -134,6 +157,12 @@ public:
 	Database database_;
 	SuperpixelsOptions options;
 
+};
+
+// line segment
+struct LineSegment {
+  Eigen::Vector2d start;
+  Eigen::Vector2d end;
 };
 
 #endif /* SUPERPIXELS_H_ */

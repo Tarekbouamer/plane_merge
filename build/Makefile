@@ -1959,6 +1959,33 @@ src/lib/seed/Tools.cpp.s:
 	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/seed/Tools.cpp.s
 .PHONY : src/lib/seed/Tools.cpp.s
 
+src/line3D.o: src/line3D.cpp.o
+
+.PHONY : src/line3D.o
+
+# target to build an object file
+src/line3D.cpp.o:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.o
+.PHONY : src/line3D.cpp.o
+
+src/line3D.i: src/line3D.cpp.i
+
+.PHONY : src/line3D.i
+
+# target to preprocess a source file
+src/line3D.cpp.i:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.i
+.PHONY : src/line3D.cpp.i
+
+src/line3D.s: src/line3D.cpp.s
+
+.PHONY : src/line3D.s
+
+# target to generate assembly for a file
+src/line3D.cpp.s:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.s
+.PHONY : src/line3D.cpp.s
+
 src/logging.o: src/logging.cc.o
 
 .PHONY : src/logging.o
@@ -2039,6 +2066,33 @@ src/misc.s: src/misc.cc.s
 src/misc.cc.s:
 	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/misc.cc.s
 .PHONY : src/misc.cc.s
+
+src/mono_depth.o: src/mono_depth.cc.o
+
+.PHONY : src/mono_depth.o
+
+# target to build an object file
+src/mono_depth.cc.o:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.o
+.PHONY : src/mono_depth.cc.o
+
+src/mono_depth.i: src/mono_depth.cc.i
+
+.PHONY : src/mono_depth.i
+
+# target to preprocess a source file
+src/mono_depth.cc.i:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.i
+.PHONY : src/mono_depth.cc.i
+
+src/mono_depth.s: src/mono_depth.cc.s
+
+.PHONY : src/mono_depth.s
+
+# target to generate assembly for a file
+src/mono_depth.cc.s:
+	$(MAKE) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.s
+.PHONY : src/mono_depth.cc.s
 
 src/mseg_segmentation.o: src/mseg_segmentation.cc.o
 
@@ -2604,6 +2658,9 @@ help:
 	@echo "... src/lib/seed/Tools.o"
 	@echo "... src/lib/seed/Tools.i"
 	@echo "... src/lib/seed/Tools.s"
+	@echo "... src/line3D.o"
+	@echo "... src/line3D.i"
+	@echo "... src/line3D.s"
 	@echo "... src/logging.o"
 	@echo "... src/logging.i"
 	@echo "... src/logging.s"
@@ -2613,6 +2670,9 @@ help:
 	@echo "... src/misc.o"
 	@echo "... src/misc.i"
 	@echo "... src/misc.s"
+	@echo "... src/mono_depth.o"
+	@echo "... src/mono_depth.i"
+	@echo "... src/mono_depth.s"
 	@echo "... src/mseg_segmentation.o"
 	@echo "... src/mseg_segmentation.i"
 	@echo "... src/mseg_segmentation.s"
