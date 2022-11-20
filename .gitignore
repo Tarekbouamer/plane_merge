@@ -2,6 +2,7 @@
 LocalConfig.cmake
 src/util/version.h
 
+
 # Custom directories
 .idea/
 .vscode
