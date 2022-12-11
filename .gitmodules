@@ -1,0 +1,6 @@
+[submodule "thirdparty/PlaneRecNet"]
+	path = thirdparty/PlaneRecNet
+	url = https://github.com/EryiXie/PlaneRecNet
+[submodule "thirdparty/MiDaS"]
+	path = thirdparty/MiDaS
+	url = https://github.com/isl-org/MiDaS
