@@ -1,8 +1,9 @@
+#!/bin/bash
 
-MidasNetDir=/home/torres/3D/MiDaS
-Workspace=/home/torres/3D/datasets/eth3d
+Workspace=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
+Weights=thirdparty/MiDaS/weights/dpt_large-midas-2f21e586.pt
 
-Scenes="courtyard delivery_area electro facade kicker meadow office pipes playground relief relief_2 terrace terrains"
+Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
 
 for scene in $Scenes;
 do
@@ -13,12 +14,10 @@ do
     src_dir=$DATASET_PATH/dense/images/dslr_images_undistorted/
     dst_dir=$DATASET_PATH/dense/stereo/mono_depth
     
-
-    echo $dst_dir
+    # echo $dst_dir
     rm -rf $dst_dir
     mkdir -p $dst_dir
     
-    # Estimate mono depth
-    cd $MidasNetDir
-    python run.py -i $src_dir -o $dst_dir
+    # estimate mono depth
+    python thirdparty/MiDaS/run.py -i $src_dir -o $dst_dir -m $Weights
 done 

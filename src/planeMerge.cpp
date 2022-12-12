@@ -62,13 +62,14 @@
 #include "superpixels.h"
 
 
-
 int RunDatabase(int argc, char** argv)
 {
 	OptionManager options;
 
 	options.Parse(argc, argv);
 
+  std::cout << *options.database_path << std::endl;
+  
 	Database database(*options.database_path);
 
 	std::cout << "database  " << database.NumImages() << std::endl;
@@ -78,6 +79,7 @@ int RunDatabase(int argc, char** argv)
 	}
 	return EXIT_SUCCESS;
 }
+
 
 int RunSEED(int argc, char** argv)
 {
@@ -89,6 +91,7 @@ int RunSEED(int argc, char** argv)
 
 	return EXIT_SUCCESS;
 }
+
 
 int RunSimpleMerge(int argc, char** argv)
 {

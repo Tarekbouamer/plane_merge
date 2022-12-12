@@ -6,21 +6,21 @@
 #include <boost/program_options.hpp>
 
 class OptionManager {
- public:
+  public:
   
-  OptionManager(bool add_project_options = true);
+    OptionManager(bool add_project_options = true);
 
-  void Reset();
+    void Reset();
 
-  void Parse(const int argc, char** argv);
-  bool Read(const std::string& path);
+    void Parse(const int argc, char** argv);
+    bool Read(const std::string& path);
 
-  std::shared_ptr<std::string> project_path;
-  std::shared_ptr<std::string> workspace_path;
-  std::shared_ptr<std::string> database_path;
+    std::shared_ptr<std::string> project_path;
+    std::shared_ptr<std::string> workspace_path;
+    std::shared_ptr<std::string> database_path;
 
- private:
-  std::shared_ptr<boost::program_options::options_description> desc_;
+  private:
+    std::shared_ptr<boost::program_options::options_description> desc_;
 
 };
 

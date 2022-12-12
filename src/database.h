@@ -30,7 +30,7 @@ class Database {
 	// Read one object images
 	Image ReadImage(const std::string& image_path, const std::string& camera_path) ;
 	
-	// 	// Read All images in database (camera parameters and loading path)
+	// Read All images in database (camera parameters and loading path)
 	std::vector<Image> ReadAllImages() ;
 
   // Check whether specific object exists.
@@ -49,7 +49,7 @@ class Database {
 	std::string normal_folder 			= "/stereo/normal_maps/dslr_images_undistorted/";
 	std::string quality_folder 			= "/stereo/quality_maps/dslr_images_undistorted/";
 	std::string confidence_folder 	= "/stereo/confidence_maps/dslr_images_undistorted/";
-	
+																		/pipes/dense/stereo/normal_maps/dslr_images_undistorted
 	std::string plane_seg_folder 		= "/stereo/plane_segmentation/";
 	std::string mseg_seg_folder 		= "/stereo/semantic_segmentation/";
 	std::string mono_depth_folder 	= "/stereo/mono_depth/";

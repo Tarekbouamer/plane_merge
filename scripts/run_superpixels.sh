@@ -4,22 +4,17 @@ Workspace=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
 
 Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
 
+cd build 
+
 for scene in $Scenes;
 do
    
-    DATASET_PATH="$Workspace/$scene"
+    PROJECT_PATH="$Workspace/$scene"
 
-    echo "Camera model extractor run :: ${DATASET_PATH}"
-
-    src_dir=$DATASET_PATH/dense/stereo/model
-
-    echo $src_dir
+    echo "Generate superpixels for :: ${PROJECT_PATH}"
     
-    rm -rf $src_dir
-
     # extract mddel from bin 
-    python scripts/database/genFromColmap.py --dataset=$DATASET_PATH
-
+    ./SceneParser superpixels --project_path $PROJECT_PATH
 
 done 
 

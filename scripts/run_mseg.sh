@@ -26,6 +26,6 @@ do
     
     # Extract Semantics
     cd $MsegNetDir
-    python -u mseg_semantic/tool/universal_demo.py --config=${config} model_name ${model_name} model_path ${model_path} input_file ${src_dir} save_folder ${dst_dir}
+    python -u scripts/mseg_semantic/tool/universal_demo.py --config=${config} model_name ${model_name} model_path ${model_path} input_file ${src_dir} save_folder ${dst_dir}
 
 done 

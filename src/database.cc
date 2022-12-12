@@ -6,7 +6,6 @@
 Database::Database(const std::string& path){
 	workspace = GetParentPath(path); 
 	Open(path); 
-	
 }
 
 void Database::Open(const std::string& path){ 

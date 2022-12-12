@@ -23,6 +23,7 @@
 
 
 SimpleMerge::SimpleMerge(const std::string& database_path ){
+  
   _database = Database(database_path);
 }
 
@@ -56,6 +57,11 @@ void SimpleMerge::LoadSuperpixelList(Image& item, superpixels_t& list_supepixels
 
   // read depth
   std::string  item_depth = JoinPaths(_database.workspace, _database.depth_folder, item_name + ".JPG.geometric.bin");
+  
+  std::cout << "_database.workspace"      << _database.workspace    << std::endl;
+  std::cout << "_database.depth_folder"   << _database.depth_folder << std::endl;
+  std::cout << "item_depth"   << item_depth << std::endl;
+
   cv::Mat depth_map = Depth(item_depth).Read();
 
   // read quality
@@ -708,19 +714,27 @@ void SimpleMerge::WriteNewLabels(Image& item, cv::Mat& cls, cv::Mat& lbl, superp
 
 
 void SimpleMerge::Run(){
+    
+  std::cout << "RUN" << std::endl;
 
   // read all images
   std::vector<Image> images = _database.ReadAllImages();
+
+  std::cout << "Images" << std::endl;
 
   for (auto& item: images){
 
     // image name
     std::string item_name = GetPathBaseName(item.GetImagePath());
+    std::cout << "item_name" << item_name << std::endl;
 
     // read superpixels
     std::string  item_superpixels_cls = JoinPaths(_database.workspace, _database.superpixels_folder, item_name + ".csv");
     std::string  item_superpixels_lbl = JoinPaths(_database.workspace, _database.superpixels_folder, item_name + ".png");
     
+    std::cout << "item_superpixels_cls" << item_superpixels_cls << std::endl;
+    std::cout << "item_superpixels_lbl" << item_superpixels_lbl << std::endl;
+   
     SuperpixelsSegementation _superpixels = SuperpixelsSegementation(item_superpixels_cls, item_superpixels_lbl);
 
     cv::Mat lbl = _superpixels.ReadLabels();
