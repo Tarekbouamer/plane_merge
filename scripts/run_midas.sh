@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Workspace=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
+Workspace=/media/loc/ssd_1tb/multi_view_training_dslr_undistorted
 Weights=thirdparty/MiDaS/weights/dpt_large-midas-2f21e586.pt
 
 Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
