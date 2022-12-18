@@ -61,7 +61,6 @@ void SuperpixelsGenerator::Run(){
   
   // create directory for superpixels in workspace
   std::string ws_folder = JoinPaths(database_.workspace, database_.superpixels_folder);
-  
   CreateDirIfNotExists(ws_folder);
 
   // read all images

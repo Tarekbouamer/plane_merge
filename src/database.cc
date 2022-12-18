@@ -22,7 +22,7 @@ size_t Database::NumImages() const { return database.size(); }
 
 CameraParam Database::ReadCamera(const std::string& path)  {
 	
-	std::cout << "Going To Read Camera Parameters: " << path << std::endl;
+	// std::cout << "Going To Read Camera Parameters: " << path << std::endl;
 	
 	CameraParam _camera_param;
 	

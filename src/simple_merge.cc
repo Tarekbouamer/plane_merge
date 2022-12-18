@@ -715,25 +715,20 @@ void SimpleMerge::WriteNewLabels(Image& item, cv::Mat& cls, cv::Mat& lbl, superp
 
 void SimpleMerge::Run(){
     
-  std::cout << "RUN" << std::endl;
 
   // read all images
   std::vector<Image> images = _database.ReadAllImages();
 
-  std::cout << "Images" << std::endl;
 
   for (auto& item: images){
 
     // image name
     std::string item_name = GetPathBaseName(item.GetImagePath());
-    std::cout << "item_name" << item_name << std::endl;
 
     // read superpixels
     std::string  item_superpixels_cls = JoinPaths(_database.workspace, _database.superpixels_folder, item_name + ".csv");
     std::string  item_superpixels_lbl = JoinPaths(_database.workspace, _database.superpixels_folder, item_name + ".png");
     
-    std::cout << "item_superpixels_cls" << item_superpixels_cls << std::endl;
-    std::cout << "item_superpixels_lbl" << item_superpixels_lbl << std::endl;
    
     SuperpixelsSegementation _superpixels = SuperpixelsSegementation(item_superpixels_cls, item_superpixels_lbl);
 
@@ -762,17 +757,19 @@ void SimpleMerge::Run(){
     EstimatePlaneParameters(listSuperpixels);
 
     // planar quality using monte carlo perturbation
-    std::cout << "MonteCarloPertutbation" << std::endl;
-    MonteCarloPertutbation(item, listSuperpixels) ;
+    // std::cout << "MonteCarloPertutbation" << std::endl;
+    // MonteCarloPertutbation(item, listSuperpixels) ;
 
     // find mono planar supports 
-    std::cout << "EstimateMonoPlaneParameters" << std::endl;
+    // std::cout << "EstimateMonoPlaneParameters" << std::endl;
     // EstimateMonoPlaneParameters(listSuperpixels); 
 
     // Semantic lables map
+    std::cout << "LoadSemanticLabel" << std::endl;
     LoadSemanticLabel(item, cls, listSuperpixels);
 
     // Plane lables map
+    std::cout << "LoadPlaneLabel" << std::endl;
     LoadPlaneLabel(item, cls, listSuperpixels);
 
     // plane merge 

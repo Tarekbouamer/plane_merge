@@ -1,6 +1,7 @@
 Workspace=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
 
 Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
+Scenes="pipes"
 
 for scene in $Scenes;
 do

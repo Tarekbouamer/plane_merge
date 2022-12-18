@@ -1,12 +1,11 @@
 
 model_name=mseg-3m
-model_path=./logs/mseg-3m.pth
-config=mseg_semantic/config/test/default_config_360_ms.yaml
+model_path=thirdparty/mseg-semantic/weights/mseg-3m.pth
+config=thirdparty/mseg-semantic/mseg_semantic/config/test/default_config_360_ms.yaml
 
 
-MsegNetDir=/home/torres/3D/mseg-semantic
-
-Workspace=/home/torres/3D/datasets/eth3d
+Workspace=/media/dl/ssd_1tb/multi_view_training_dslr_undistorted
+Weights=thirdparty/MiDaS/weights/dpt_large-midas-2f21e586.pt
 
 Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
 
@@ -25,7 +24,6 @@ do
     mkdir -p $dst_dir
     
     # Extract Semantics
-    cd $MsegNetDir
-    python -u scripts/mseg_semantic/tool/universal_demo.py --config=${config} model_name ${model_name} model_path ${model_path} input_file ${src_dir} save_folder ${dst_dir}
+    python thirdparty/mseg-semantic/mseg_semantic/tool/universal_demo.py --config=${config} model_name ${model_name} model_path ${model_path} input_file ${src_dir} save_folder ${dst_dir}
 
 done 
