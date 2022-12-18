@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MODEL_PATH=thirdparty/PlaneRecNet/
-DATA_PATH=/media/dl/ssd_1tb/multi_view_training_dslr_undistorted
+DATA_PATH=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
 
 cd $MODEL_PATH
 
@@ -23,6 +23,7 @@ do
     rm -rf $dst_dir
     mkdir -p $dst_dir
 
+    
     # Extract plane 
     python3 simple_inference.py --config=PlaneRecNet_101_config --trained_model=weights/PlaneRecNet_101_9_125000.pth --images=$src_dir:$dst_dir
 
