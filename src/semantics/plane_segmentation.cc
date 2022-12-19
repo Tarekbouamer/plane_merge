@@ -66,8 +66,13 @@ std::vector<cv::Mat> PlaneSegmentation::Read(const std::string& plane_seg_path){
 			y = floor( hw / width);
 			x = hw - y * width;
 						
-			M.at<float>(y,x) = (float)data1D[k][hw];
+			M.at<float>(y,x) = (float)data1D[k][hw] * 255;
+			std::cout << (float)data1D[k][hw] * 255 << std::endl;
 		}
+
+		cv::namedWindow( "Display window", CV_WINDOW_AUTOSIZE );// Create a window for display.
+		cv::imshow( "Display window", M ); 
+		cv::waitKey(0);
 
 		planes.push_back(M);
 		

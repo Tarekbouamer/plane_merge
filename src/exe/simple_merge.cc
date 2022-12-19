@@ -506,12 +506,7 @@ void SimpleMerge::LoadSemanticLabel(Image& item, cv::Mat& cls, superpixels_t& li
   MsegSegmentation _mseg = MsegSegmentation(item_mseg_seg);
   cv::Mat semantics = _mseg.Read();
 
-  cv::namedWindow( "Display window", CV_WINDOW_AUTOSIZE );// Create a window for display.
-  cv::imshow( "Display window", semantics ); 
-  cv::waitKey(0);
-
   std::cout << semantics.size() << std::endl;
-
 
   // Set semantics labesl for each superpixels
 
