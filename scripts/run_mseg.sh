@@ -18,7 +18,6 @@ do
     src_dir=$DATASET_PATH/dense/images/dslr_images_undistorted/
     dst_dir=$DATASET_PATH/dense/stereo/semantic_segmentation
     
-
     echo $dst_dir
     rm -rf $dst_dir
     mkdir -p $dst_dir

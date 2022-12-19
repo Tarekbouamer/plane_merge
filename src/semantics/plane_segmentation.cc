@@ -21,7 +21,7 @@ std::vector<cv::Mat> PlaneSegmentation::Read(const std::string& plane_seg_path){
 	
 	cnpy::NpyArray np_data = cnpy::npy_load(plane_seg_path);
 
-	float *data = np_data.data<float>();
+	uchar *data = np_data.data<uchar>();
 	
 	unsigned int num_masks 	= np_data.shape[0];	
 	unsigned int height  		= np_data.shape[1];	
@@ -58,24 +58,17 @@ std::vector<cv::Mat> PlaneSegmentation::Read(const std::string& plane_seg_path){
 
 	for ( unsigned int k=0; k < data1D.size(); k++ )
 	{
-		cv::Mat M(height, width, CV_32FC1);
+		cv::Mat M(height, width, CV_8UC1);
 
 		for ( unsigned int hw=0; hw <data1D[k].size(); hw++)
 		{
 			// 2D coordinates
 			y = floor( hw / width);
 			x = hw - y * width;
-						
-			M.at<float>(y,x) = (float)data1D[k][hw] * 255;
-			std::cout << (float)data1D[k][hw] * 255 << std::endl;
+			
+			M.at<uchar>(y,x) = (uchar) data1D[k][hw] * 255;
 		}
-
-		cv::namedWindow( "Display window", CV_WINDOW_AUTOSIZE );// Create a window for display.
-		cv::imshow( "Display window", M ); 
-		cv::waitKey(0);
-
-		planes.push_back(M);
-		
+		planes.push_back(M);	
 	}
 
 	return planes;
@@ -89,7 +82,7 @@ std::vector<cv::Mat> PlaneSegmentation::Read(const cv::Size target_size){
 
 	std::vector<cv::Mat> items = Read(_plane_seg_path);
 	
-	for (auto& M : items){ Rescale(M , target_size); }
+	for (auto& M : items){ 	Rescale(M , target_size);	}
 
   return items;
 }

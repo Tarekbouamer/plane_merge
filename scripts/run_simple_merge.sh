@@ -1,7 +1,7 @@
 #!/bin/bash
 
 Workspace=/media/dl/ssd_1tb/multi_view_training_dslr_undistorted/
-Workspace=/media/loc/ssd_1tb/multi_view_training_dslr_undistorted/
+# Workspace=/media/loc/ssd_1tb/multi_view_training_dslr_undistorted/
 
 Scenes="pipes office courtyard delivery_area electro facade kicker meadow playground relief relief_2 terrace terrains"
 

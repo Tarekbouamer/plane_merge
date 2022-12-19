@@ -5,7 +5,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "simple_merge.h"
+#include "exe/simple_merge.h"
 #include "reconstruction/depth.h"
 #include "reconstruction/normal.h"
 #include "reconstruction/quality.h"
@@ -502,7 +502,7 @@ void SimpleMerge::LoadSemanticLabel(Image& item, cv::Mat& cls, superpixels_t& li
   
   // read mseg  && resize
   std::string  item_mseg_seg   = JoinPaths(_database.workspace, _database.mseg_seg_folder, item_name + ".png");
-
+  std::cout << item_mseg_seg << std::endl;
   MsegSegmentation _mseg = MsegSegmentation(item_mseg_seg);
   cv::Mat semantics = _mseg.Read();
 
@@ -620,7 +620,7 @@ void SimpleMerge::PlaneLabel(Image& item, cv::Mat& cls, superpixels_t& list_supe
 
       if (s->id == plane->id)
       {
-        problem->add_tweights( s->id, unary_term(s, s), 9999999999);
+        problem->add_tweights( s->id, unary_term(s, s), 1);
       }
       else
       {

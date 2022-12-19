@@ -11,7 +11,8 @@ MsegSegmentation::MsegSegmentation(const std::string& mseg_seg_path):
 	boost::filesystem::path current_path(boost::filesystem::current_path());
 	
 	// TODO: modify this line
-	std::string mseg_classes = JoinPaths("/home/loc/3D/plane_merge/config/", "classes.txt");
+	// std::string mseg_classes = JoinPaths("/home/loc/3D/plane_merge/config/", "classes.txt");
+	std::string mseg_classes = JoinPaths("/home/dl/3D/plane_merge/config/", "classes.txt");
 
 	// readlines
 	std::vector<std::string> lines = ReadTextFileLines(mseg_classes.c_str());
