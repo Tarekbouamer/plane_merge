@@ -13,7 +13,7 @@ class PlaneSegmentation{
 public:
  	PlaneSegmentation()=default;
   	
-	PlaneSegmentation(const std::string& plane_seg_path, const std::string& plane_params_path);
+	PlaneSegmentation(const std::string& plane_seg_path);
 
 	std::vector<cv::Mat> Read();
   std::vector<cv::Mat> Read(const std::string& path);

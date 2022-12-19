@@ -22,6 +22,8 @@
 
 #include "cost.h"
 
+#include "utils/logging.h"
+
 
 SimpleMerge::SimpleMerge(const std::string& database_path ){
   
@@ -59,15 +61,13 @@ void SimpleMerge::LoadSuperpixelList(Image& item, superpixels_t& list_supepixels
   // read depth
   std::string  item_depth = JoinPaths(_database.workspace, _database.depth_folder, item_name + ".JPG.geometric.bin");
   
-  std::cout << "_database.workspace"      << _database.workspace    << std::endl;
-  std::cout << "_database.depth_folder"   << _database.depth_folder << std::endl;
-  std::cout << "item_depth"   << item_depth << std::endl;
-
   cv::Mat depth_map = Depth(item_depth).Read();
 
   // read quality
   std::string  item_quality = JoinPaths(_database.workspace, _database.quality_folder, item_name + ".JPG.geometric.bin");
   cv::Mat quality_map = Quality(item_quality).Read();
+
+
 
   // compute  uncertanity map
 	cv::Mat uncertainty_map = cv::Mat(quality_map.rows, quality_map.cols, CV_32FC1, INFINITY);  
@@ -149,8 +149,8 @@ void SimpleMerge::LoadSuperpixelList(Image& item, superpixels_t& list_supepixels
   for (int id = 0; id < list_supepixels.size(); id++){
     avg_pixles += ( list_supepixels[id]->numPixels) / ( (float) (list_supepixels.size()) );
   }
-
-  std::cout << "2d pixels count = " << avg_pixles << std::endl;
+  
+  std::cout << "Average Pixel Count = " << avg_pixles << std::endl;
 }
 
 
@@ -503,10 +503,12 @@ void SimpleMerge::LoadSemanticLabel(Image& item, cv::Mat& cls, superpixels_t& li
   // read mseg  && resize
   std::string  item_mseg_seg   = JoinPaths(_database.workspace, _database.mseg_seg_folder, item_name + ".png");
 
-  std::cout << item_name << std::endl;
-
   MsegSegmentation _mseg = MsegSegmentation(item_mseg_seg);
   cv::Mat semantics = _mseg.Read();
+
+  cv::namedWindow( "Display window", CV_WINDOW_AUTOSIZE );// Create a window for display.
+  cv::imshow( "Display window", semantics ); 
+  cv::waitKey(0);
 
   std::cout << semantics.size() << std::endl;
 
@@ -536,10 +538,10 @@ void SimpleMerge::LoadPlaneLabel(Image& item, cv::Mat& cls, superpixels_t& list_
   std::string item_name = GetPathBaseName(item.GetImagePath());
   
   // read planes  && resize
-  std::string  item_plane_seg   = JoinPaths(_database.workspace, _database.plane_seg_folder, item_name + ".masks.npy");
-  std::string  item_plane_prams = JoinPaths(_database.workspace, _database.plane_seg_folder, item_name + ".params.npy");
+  std::string  item_plane_seg   = JoinPaths(_database.workspace, _database.plane_seg_folder, item_name + "_plane.npy");
+  // std::string  item_plane_prams = JoinPaths(_database.workspace, _database.plane_seg_folder, item_name + ".params.npy");
 
-  PlaneSegmentation _planes = PlaneSegmentation(item_plane_seg, item_plane_prams);
+  PlaneSegmentation _planes = PlaneSegmentation(item_plane_seg);
   cv::Size img_size(item.GetWidth(), item.GetHeight());
   std::vector<cv::Mat> plane_seg = _planes.Read(img_size);
 
@@ -753,9 +755,11 @@ void SimpleMerge::Run(){
     for (unsigned int id = 0; id < num_superpixels; id++){ listSuperpixels[id] = new Superpixel(id); }
 
     // load initial models
+    std::cout << "LoadSuperpixelList" << std::endl;
     LoadSuperpixelList(item, listSuperpixels);
 
     // assign to each superpixel all neighbors 
+    std::cout << "AssignNeighbouring" << std::endl;
     AssignNeighbouring(cls , listSuperpixels); 
 
     // find planar supports 
@@ -779,10 +783,11 @@ void SimpleMerge::Run(){
     LoadPlaneLabel(item, cls, listSuperpixels);
 
     // plane merge 
+    std::cout << "PlaneLabel" << std::endl;
     PlaneLabel(item, cls, listSuperpixels, lbl);
 
     // write results
-    std::cout << "write new image" << std::endl;
+    std::cout << "WriteNewLabels" << std::endl;
     WriteNewLabels(item, cls, lbl, listSuperpixels);
 
   } // All images

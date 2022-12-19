@@ -4,9 +4,3 @@
 [submodule "thirdparty/MiDaS"]
 	path = thirdparty/MiDaS
 	url = https://github.com/isl-org/MiDaS
-[submodule "thirdparty/mseg-semantic"]
-	path = thirdparty/mseg-semantic
-	url = https://github.com/mseg-dataset/mseg-semantic
-[submodule "thirdparty/mseg-api"]
-	path = thirdparty/mseg-api
-	url = https://github.com/mseg-dataset/mseg-api

@@ -2,9 +2,8 @@
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
 
-PlaneSegmentation::PlaneSegmentation(const std::string& plane_seg_path, const std::string& plane_params_path): 
-			_plane_seg_path(plane_seg_path),
-			_plane_params_path(plane_params_path) {
+PlaneSegmentation::PlaneSegmentation(const std::string& plane_seg_path): 
+			_plane_seg_path(plane_seg_path){
 
 	cnpy::NpyArray np_data = cnpy::npy_load(plane_seg_path);
 
