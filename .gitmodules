@@ -7,3 +7,6 @@
 [submodule "thirdparty/mseg-api"]
 	path = thirdparty/mseg-api
 	url = https://github.com/mseg-dataset/mseg-api
+[submodule "thirdparty/mseg-semantic"]
+	path = thirdparty/mseg-semantic
+	url = https://github.com/mseg-dataset/mseg-semantic
