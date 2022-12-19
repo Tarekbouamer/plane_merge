@@ -6,8 +6,8 @@
 #include <string>
 #include <math.h>
 
-#include "superpixels.h"
-#include "mseg_segmentation.h"
+#include "semantics/superpixels.h"
+#include "semantics/mseg_segmentation.h"
 
 
 std::map<int, std::string> planarities = {

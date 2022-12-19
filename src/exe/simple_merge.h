@@ -5,14 +5,14 @@
 #include <iostream>
 #include <string>
 
-#include "database.h"
-#include "superpixels.h"
+#include "reconstruction/database.h"
+#include "semantics/superpixels.h"
 
-#include "plane_estimator.h"
+#include "estimators/plane_estimator.h"
 
-#include "random.h"
+#include "utils/random.h"
 
-#include "misc.h"
+#include "utils/misc.h"
 
 typedef std::vector<Superpixel*> superpixels_t;
 

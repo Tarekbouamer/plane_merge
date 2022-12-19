@@ -1,8 +1,9 @@
 #include "mseg_segmentation.h"
 
 #include <fstream>
-#include "misc.h"
 #include <eigen3/Eigen/Geometry>
+
+#include "utils/misc.h"
 
 MsegSegmentation::MsegSegmentation(const std::string& mseg_seg_path): 
 			_mseg_seg_path(mseg_seg_path) {
@@ -10,7 +11,7 @@ MsegSegmentation::MsegSegmentation(const std::string& mseg_seg_path):
 	boost::filesystem::path current_path(boost::filesystem::current_path());
 	
 	// TODO: modify this line
-	std::string mseg_classes = JoinPaths("/home/torres/3D/planeMerge/config", "classes.txt");
+	std::string mseg_classes = JoinPaths("/home/loc/3D/plane_merge/config/", "classes.txt");
 
 	// readlines
 	std::vector<std::string> lines = ReadTextFileLines(mseg_classes.c_str());

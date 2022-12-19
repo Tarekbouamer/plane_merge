@@ -5,9 +5,9 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <unordered_map>
-#include "types.h"
-
 #include <boost/filesystem.hpp>
+
+#include "utils/types.h"
 
 
 class MonoDepth{

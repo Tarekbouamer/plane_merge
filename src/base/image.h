@@ -6,7 +6,7 @@
 #include <opencv2/opencv.hpp>
 #include <eigen3/Eigen/Geometry>
 
-#include "types.h"
+#include "utils/types.h"
 
 struct CameraParam
 {

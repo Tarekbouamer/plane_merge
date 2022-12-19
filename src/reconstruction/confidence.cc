@@ -1,6 +1,7 @@
-#include "confidence.h"
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
+
+#include "confidence.h"
 
 Confidence::Confidence(const std::string& confidence_path): _confidence_path(confidence_path) {};
 

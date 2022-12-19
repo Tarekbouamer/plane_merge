@@ -1,6 +1,8 @@
-#include "depth.h"
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
+
+#include "depth.h"
+
 
 Depth::Depth(const std::string& depth_path): _depth_path(depth_path) {};
 

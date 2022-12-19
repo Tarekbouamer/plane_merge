@@ -35,7 +35,8 @@ link_directories(${EIGEN3_INCLUDE_DIR})
 # )
 
 include_directories(
-    lib
+    src
+    src/exe
 )
 
 

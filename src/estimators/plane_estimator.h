@@ -11,8 +11,8 @@
 
 #include <eigen3/Eigen/Dense>
 
-#include "ransac.h"
-#include "loransac.h"
+#include "optim/ransac.h"
+#include "optim/loransac.h"
 
 
 class PlaneModel{

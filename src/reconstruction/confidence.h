@@ -1,25 +1,25 @@
-#ifndef DEPTH_H_
-#define DEPTH_H_
+#ifndef CONFIDENCE_H_
+#define CONFIDENCE_H_
 
 #include <fstream>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-#include "types.h"
+#include "utils/types.h"
 
-class Depth{
+class Confidence{
 
 public:
- 	Depth()=default;
+ 	Confidence()=default;
   	
-	Depth(const std::string& depth_path);
+	Confidence(const std::string& confidence_path);
 
 	cv::Mat Read();
   cv::Mat Read(const std::string& path);
 
 	void Write(const std::string& path, cv::Mat& M);
 
-  const std::string& GetDepthPath() const;
+  const std::string& GetConfidencePath() const;
 
   size_t GetWidth() const;
   size_t GetHeight() const;
@@ -30,14 +30,14 @@ public:
 
 private:
   
-  // depth identifier
-	image_t _depth_id;		
+  // confidence identifier
+	image_t _confidence_id;		
 		
 	// image path realative to workspace
-	std::string _depth_path;
+	std::string _confidence_path;
 
 	// Image  data
 	size_t  _width, _height, _channels;
 };
 
-#endif //DEPTH_H_
+#endif //CONFIDENCE_H_

@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dl/3D/plane_merge
+CMAKE_SOURCE_DIR = /home/loc/3D/plane_merge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dl/3D/plane_merge/build
+CMAKE_BINARY_DIR = /home/loc/3D/plane_merge/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dl/3D/plane_merge/build/CMakeFiles /home/dl/3D/plane_merge/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/loc/3D/plane_merge/build/CMakeFiles /home/loc/3D/plane_merge/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dl/3D/plane_merge/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/loc/3D/plane_merge/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,197 +129,125 @@ SceneParser/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/build
 .PHONY : SceneParser/fast
 
-src/GCoptimization.o: src/GCoptimization.cpp.o
-.PHONY : src/GCoptimization.o
+src/base/image.o: src/base/image.cc.o
+.PHONY : src/base/image.o
 
 # target to build an object file
-src/GCoptimization.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/GCoptimization.cpp.o
-.PHONY : src/GCoptimization.cpp.o
+src/base/image.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/image.cc.o
+.PHONY : src/base/image.cc.o
 
-src/GCoptimization.i: src/GCoptimization.cpp.i
-.PHONY : src/GCoptimization.i
+src/base/image.i: src/base/image.cc.i
+.PHONY : src/base/image.i
 
 # target to preprocess a source file
-src/GCoptimization.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/GCoptimization.cpp.i
-.PHONY : src/GCoptimization.cpp.i
+src/base/image.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/image.cc.i
+.PHONY : src/base/image.cc.i
 
-src/GCoptimization.s: src/GCoptimization.cpp.s
-.PHONY : src/GCoptimization.s
+src/base/image.s: src/base/image.cc.s
+.PHONY : src/base/image.s
 
 # target to generate assembly for a file
-src/GCoptimization.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/GCoptimization.cpp.s
-.PHONY : src/GCoptimization.cpp.s
+src/base/image.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/image.cc.s
+.PHONY : src/base/image.cc.s
 
-src/LinkedBlockList.o: src/LinkedBlockList.cc.o
-.PHONY : src/LinkedBlockList.o
+src/base/line3D.o: src/base/line3D.cpp.o
+.PHONY : src/base/line3D.o
 
 # target to build an object file
-src/LinkedBlockList.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/LinkedBlockList.cc.o
-.PHONY : src/LinkedBlockList.cc.o
+src/base/line3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/line3D.cpp.o
+.PHONY : src/base/line3D.cpp.o
 
-src/LinkedBlockList.i: src/LinkedBlockList.cc.i
-.PHONY : src/LinkedBlockList.i
+src/base/line3D.i: src/base/line3D.cpp.i
+.PHONY : src/base/line3D.i
 
 # target to preprocess a source file
-src/LinkedBlockList.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/LinkedBlockList.cc.i
-.PHONY : src/LinkedBlockList.cc.i
+src/base/line3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/line3D.cpp.i
+.PHONY : src/base/line3D.cpp.i
 
-src/LinkedBlockList.s: src/LinkedBlockList.cc.s
-.PHONY : src/LinkedBlockList.s
+src/base/line3D.s: src/base/line3D.cpp.s
+.PHONY : src/base/line3D.s
 
 # target to generate assembly for a file
-src/LinkedBlockList.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/LinkedBlockList.cc.s
-.PHONY : src/LinkedBlockList.cc.s
+src/base/line3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/base/line3D.cpp.s
+.PHONY : src/base/line3D.cpp.s
 
-src/confidence.o: src/confidence.cc.o
-.PHONY : src/confidence.o
+src/estimators/plane_estimator.o: src/estimators/plane_estimator.cc.o
+.PHONY : src/estimators/plane_estimator.o
 
 # target to build an object file
-src/confidence.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/confidence.cc.o
-.PHONY : src/confidence.cc.o
+src/estimators/plane_estimator.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/estimators/plane_estimator.cc.o
+.PHONY : src/estimators/plane_estimator.cc.o
 
-src/confidence.i: src/confidence.cc.i
-.PHONY : src/confidence.i
+src/estimators/plane_estimator.i: src/estimators/plane_estimator.cc.i
+.PHONY : src/estimators/plane_estimator.i
 
 # target to preprocess a source file
-src/confidence.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/confidence.cc.i
-.PHONY : src/confidence.cc.i
+src/estimators/plane_estimator.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/estimators/plane_estimator.cc.i
+.PHONY : src/estimators/plane_estimator.cc.i
 
-src/confidence.s: src/confidence.cc.s
-.PHONY : src/confidence.s
+src/estimators/plane_estimator.s: src/estimators/plane_estimator.cc.s
+.PHONY : src/estimators/plane_estimator.s
 
 # target to generate assembly for a file
-src/confidence.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/confidence.cc.s
-.PHONY : src/confidence.cc.s
+src/estimators/plane_estimator.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/estimators/plane_estimator.cc.s
+.PHONY : src/estimators/plane_estimator.cc.s
 
-src/database.o: src/database.cc.o
-.PHONY : src/database.o
+src/exe/planeMerge.o: src/exe/planeMerge.cpp.o
+.PHONY : src/exe/planeMerge.o
 
 # target to build an object file
-src/database.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/database.cc.o
-.PHONY : src/database.cc.o
+src/exe/planeMerge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/planeMerge.cpp.o
+.PHONY : src/exe/planeMerge.cpp.o
 
-src/database.i: src/database.cc.i
-.PHONY : src/database.i
+src/exe/planeMerge.i: src/exe/planeMerge.cpp.i
+.PHONY : src/exe/planeMerge.i
 
 # target to preprocess a source file
-src/database.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/database.cc.i
-.PHONY : src/database.cc.i
+src/exe/planeMerge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/planeMerge.cpp.i
+.PHONY : src/exe/planeMerge.cpp.i
 
-src/database.s: src/database.cc.s
-.PHONY : src/database.s
+src/exe/planeMerge.s: src/exe/planeMerge.cpp.s
+.PHONY : src/exe/planeMerge.s
 
 # target to generate assembly for a file
-src/database.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/database.cc.s
-.PHONY : src/database.cc.s
+src/exe/planeMerge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/planeMerge.cpp.s
+.PHONY : src/exe/planeMerge.cpp.s
 
-src/depth.o: src/depth.cc.o
-.PHONY : src/depth.o
+src/exe/simple_merge.o: src/exe/simple_merge.cc.o
+.PHONY : src/exe/simple_merge.o
 
 # target to build an object file
-src/depth.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/depth.cc.o
-.PHONY : src/depth.cc.o
+src/exe/simple_merge.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/simple_merge.cc.o
+.PHONY : src/exe/simple_merge.cc.o
 
-src/depth.i: src/depth.cc.i
-.PHONY : src/depth.i
-
-# target to preprocess a source file
-src/depth.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/depth.cc.i
-.PHONY : src/depth.cc.i
-
-src/depth.s: src/depth.cc.s
-.PHONY : src/depth.s
-
-# target to generate assembly for a file
-src/depth.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/depth.cc.s
-.PHONY : src/depth.cc.s
-
-src/graph.o: src/graph.cc.o
-.PHONY : src/graph.o
-
-# target to build an object file
-src/graph.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph.cc.o
-.PHONY : src/graph.cc.o
-
-src/graph.i: src/graph.cc.i
-.PHONY : src/graph.i
+src/exe/simple_merge.i: src/exe/simple_merge.cc.i
+.PHONY : src/exe/simple_merge.i
 
 # target to preprocess a source file
-src/graph.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph.cc.i
-.PHONY : src/graph.cc.i
+src/exe/simple_merge.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/simple_merge.cc.i
+.PHONY : src/exe/simple_merge.cc.i
 
-src/graph.s: src/graph.cc.s
-.PHONY : src/graph.s
-
-# target to generate assembly for a file
-src/graph.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph.cc.s
-.PHONY : src/graph.cc.s
-
-src/graph_cut.o: src/graph_cut.cc.o
-.PHONY : src/graph_cut.o
-
-# target to build an object file
-src/graph_cut.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph_cut.cc.o
-.PHONY : src/graph_cut.cc.o
-
-src/graph_cut.i: src/graph_cut.cc.i
-.PHONY : src/graph_cut.i
-
-# target to preprocess a source file
-src/graph_cut.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph_cut.cc.i
-.PHONY : src/graph_cut.cc.i
-
-src/graph_cut.s: src/graph_cut.cc.s
-.PHONY : src/graph_cut.s
+src/exe/simple_merge.s: src/exe/simple_merge.cc.s
+.PHONY : src/exe/simple_merge.s
 
 # target to generate assembly for a file
-src/graph_cut.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/graph_cut.cc.s
-.PHONY : src/graph_cut.cc.s
-
-src/image.o: src/image.cc.o
-.PHONY : src/image.o
-
-# target to build an object file
-src/image.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/image.cc.o
-.PHONY : src/image.cc.o
-
-src/image.i: src/image.cc.i
-.PHONY : src/image.i
-
-# target to preprocess a source file
-src/image.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/image.cc.i
-.PHONY : src/image.cc.i
-
-src/image.s: src/image.cc.s
-.PHONY : src/image.s
-
-# target to generate assembly for a file
-src/image.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/image.cc.s
-.PHONY : src/image.cc.s
+src/exe/simple_merge.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/exe/simple_merge.cc.s
+.PHONY : src/exe/simple_merge.cc.s
 
 src/lib/Graclus/metisLib/balance.o: src/lib/Graclus/metisLib/balance.c.o
 .PHONY : src/lib/Graclus/metisLib/balance.o
@@ -1713,6 +1641,126 @@ src/lib/cnpy/cnpy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/cnpy/cnpy.cpp.s
 .PHONY : src/lib/cnpy/cnpy.cpp.s
 
+src/lib/graphcuts/GCoptimization.o: src/lib/graphcuts/GCoptimization.cpp.o
+.PHONY : src/lib/graphcuts/GCoptimization.o
+
+# target to build an object file
+src/lib/graphcuts/GCoptimization.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/GCoptimization.cpp.o
+.PHONY : src/lib/graphcuts/GCoptimization.cpp.o
+
+src/lib/graphcuts/GCoptimization.i: src/lib/graphcuts/GCoptimization.cpp.i
+.PHONY : src/lib/graphcuts/GCoptimization.i
+
+# target to preprocess a source file
+src/lib/graphcuts/GCoptimization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/GCoptimization.cpp.i
+.PHONY : src/lib/graphcuts/GCoptimization.cpp.i
+
+src/lib/graphcuts/GCoptimization.s: src/lib/graphcuts/GCoptimization.cpp.s
+.PHONY : src/lib/graphcuts/GCoptimization.s
+
+# target to generate assembly for a file
+src/lib/graphcuts/GCoptimization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/GCoptimization.cpp.s
+.PHONY : src/lib/graphcuts/GCoptimization.cpp.s
+
+src/lib/graphcuts/LinkedBlockList.o: src/lib/graphcuts/LinkedBlockList.cc.o
+.PHONY : src/lib/graphcuts/LinkedBlockList.o
+
+# target to build an object file
+src/lib/graphcuts/LinkedBlockList.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/LinkedBlockList.cc.o
+.PHONY : src/lib/graphcuts/LinkedBlockList.cc.o
+
+src/lib/graphcuts/LinkedBlockList.i: src/lib/graphcuts/LinkedBlockList.cc.i
+.PHONY : src/lib/graphcuts/LinkedBlockList.i
+
+# target to preprocess a source file
+src/lib/graphcuts/LinkedBlockList.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/LinkedBlockList.cc.i
+.PHONY : src/lib/graphcuts/LinkedBlockList.cc.i
+
+src/lib/graphcuts/LinkedBlockList.s: src/lib/graphcuts/LinkedBlockList.cc.s
+.PHONY : src/lib/graphcuts/LinkedBlockList.s
+
+# target to generate assembly for a file
+src/lib/graphcuts/LinkedBlockList.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/LinkedBlockList.cc.s
+.PHONY : src/lib/graphcuts/LinkedBlockList.cc.s
+
+src/lib/graphcuts/graph.o: src/lib/graphcuts/graph.cc.o
+.PHONY : src/lib/graphcuts/graph.o
+
+# target to build an object file
+src/lib/graphcuts/graph.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph.cc.o
+.PHONY : src/lib/graphcuts/graph.cc.o
+
+src/lib/graphcuts/graph.i: src/lib/graphcuts/graph.cc.i
+.PHONY : src/lib/graphcuts/graph.i
+
+# target to preprocess a source file
+src/lib/graphcuts/graph.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph.cc.i
+.PHONY : src/lib/graphcuts/graph.cc.i
+
+src/lib/graphcuts/graph.s: src/lib/graphcuts/graph.cc.s
+.PHONY : src/lib/graphcuts/graph.s
+
+# target to generate assembly for a file
+src/lib/graphcuts/graph.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph.cc.s
+.PHONY : src/lib/graphcuts/graph.cc.s
+
+src/lib/graphcuts/graph_cut.o: src/lib/graphcuts/graph_cut.cc.o
+.PHONY : src/lib/graphcuts/graph_cut.o
+
+# target to build an object file
+src/lib/graphcuts/graph_cut.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph_cut.cc.o
+.PHONY : src/lib/graphcuts/graph_cut.cc.o
+
+src/lib/graphcuts/graph_cut.i: src/lib/graphcuts/graph_cut.cc.i
+.PHONY : src/lib/graphcuts/graph_cut.i
+
+# target to preprocess a source file
+src/lib/graphcuts/graph_cut.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph_cut.cc.i
+.PHONY : src/lib/graphcuts/graph_cut.cc.i
+
+src/lib/graphcuts/graph_cut.s: src/lib/graphcuts/graph_cut.cc.s
+.PHONY : src/lib/graphcuts/graph_cut.s
+
+# target to generate assembly for a file
+src/lib/graphcuts/graph_cut.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/graph_cut.cc.s
+.PHONY : src/lib/graphcuts/graph_cut.cc.s
+
+src/lib/graphcuts/maxflow.o: src/lib/graphcuts/maxflow.cc.o
+.PHONY : src/lib/graphcuts/maxflow.o
+
+# target to build an object file
+src/lib/graphcuts/maxflow.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/maxflow.cc.o
+.PHONY : src/lib/graphcuts/maxflow.cc.o
+
+src/lib/graphcuts/maxflow.i: src/lib/graphcuts/maxflow.cc.i
+.PHONY : src/lib/graphcuts/maxflow.i
+
+# target to preprocess a source file
+src/lib/graphcuts/maxflow.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/maxflow.cc.i
+.PHONY : src/lib/graphcuts/maxflow.cc.i
+
+src/lib/graphcuts/maxflow.s: src/lib/graphcuts/maxflow.cc.s
+.PHONY : src/lib/graphcuts/maxflow.s
+
+# target to generate assembly for a file
+src/lib/graphcuts/maxflow.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/graphcuts/maxflow.cc.s
+.PHONY : src/lib/graphcuts/maxflow.cc.s
+
 src/lib/seed/SeedsRevised.o: src/lib/seed/SeedsRevised.cpp.o
 .PHONY : src/lib/seed/SeedsRevised.o
 
@@ -1761,437 +1809,389 @@ src/lib/seed/Tools.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/lib/seed/Tools.cpp.s
 .PHONY : src/lib/seed/Tools.cpp.s
 
-src/line3D.o: src/line3D.cpp.o
-.PHONY : src/line3D.o
+src/optim/random_sampler.o: src/optim/random_sampler.cc.o
+.PHONY : src/optim/random_sampler.o
 
 # target to build an object file
-src/line3D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.o
-.PHONY : src/line3D.cpp.o
+src/optim/random_sampler.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/random_sampler.cc.o
+.PHONY : src/optim/random_sampler.cc.o
 
-src/line3D.i: src/line3D.cpp.i
-.PHONY : src/line3D.i
+src/optim/random_sampler.i: src/optim/random_sampler.cc.i
+.PHONY : src/optim/random_sampler.i
 
 # target to preprocess a source file
-src/line3D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.i
-.PHONY : src/line3D.cpp.i
+src/optim/random_sampler.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/random_sampler.cc.i
+.PHONY : src/optim/random_sampler.cc.i
 
-src/line3D.s: src/line3D.cpp.s
-.PHONY : src/line3D.s
+src/optim/random_sampler.s: src/optim/random_sampler.cc.s
+.PHONY : src/optim/random_sampler.s
 
 # target to generate assembly for a file
-src/line3D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/line3D.cpp.s
-.PHONY : src/line3D.cpp.s
+src/optim/random_sampler.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/random_sampler.cc.s
+.PHONY : src/optim/random_sampler.cc.s
 
-src/logging.o: src/logging.cc.o
-.PHONY : src/logging.o
+src/optim/support_measurement.o: src/optim/support_measurement.cc.o
+.PHONY : src/optim/support_measurement.o
 
 # target to build an object file
-src/logging.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/logging.cc.o
-.PHONY : src/logging.cc.o
+src/optim/support_measurement.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/support_measurement.cc.o
+.PHONY : src/optim/support_measurement.cc.o
 
-src/logging.i: src/logging.cc.i
-.PHONY : src/logging.i
+src/optim/support_measurement.i: src/optim/support_measurement.cc.i
+.PHONY : src/optim/support_measurement.i
 
 # target to preprocess a source file
-src/logging.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/logging.cc.i
-.PHONY : src/logging.cc.i
+src/optim/support_measurement.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/support_measurement.cc.i
+.PHONY : src/optim/support_measurement.cc.i
 
-src/logging.s: src/logging.cc.s
-.PHONY : src/logging.s
+src/optim/support_measurement.s: src/optim/support_measurement.cc.s
+.PHONY : src/optim/support_measurement.s
 
 # target to generate assembly for a file
-src/logging.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/logging.cc.s
-.PHONY : src/logging.cc.s
+src/optim/support_measurement.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/optim/support_measurement.cc.s
+.PHONY : src/optim/support_measurement.cc.s
 
-src/maxflow.o: src/maxflow.cc.o
-.PHONY : src/maxflow.o
+src/reconstruction/confidence.o: src/reconstruction/confidence.cc.o
+.PHONY : src/reconstruction/confidence.o
 
 # target to build an object file
-src/maxflow.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/maxflow.cc.o
-.PHONY : src/maxflow.cc.o
+src/reconstruction/confidence.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/confidence.cc.o
+.PHONY : src/reconstruction/confidence.cc.o
 
-src/maxflow.i: src/maxflow.cc.i
-.PHONY : src/maxflow.i
+src/reconstruction/confidence.i: src/reconstruction/confidence.cc.i
+.PHONY : src/reconstruction/confidence.i
 
 # target to preprocess a source file
-src/maxflow.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/maxflow.cc.i
-.PHONY : src/maxflow.cc.i
+src/reconstruction/confidence.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/confidence.cc.i
+.PHONY : src/reconstruction/confidence.cc.i
 
-src/maxflow.s: src/maxflow.cc.s
-.PHONY : src/maxflow.s
+src/reconstruction/confidence.s: src/reconstruction/confidence.cc.s
+.PHONY : src/reconstruction/confidence.s
 
 # target to generate assembly for a file
-src/maxflow.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/maxflow.cc.s
-.PHONY : src/maxflow.cc.s
+src/reconstruction/confidence.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/confidence.cc.s
+.PHONY : src/reconstruction/confidence.cc.s
 
-src/misc.o: src/misc.cc.o
-.PHONY : src/misc.o
+src/reconstruction/database.o: src/reconstruction/database.cc.o
+.PHONY : src/reconstruction/database.o
 
 # target to build an object file
-src/misc.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/misc.cc.o
-.PHONY : src/misc.cc.o
+src/reconstruction/database.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/database.cc.o
+.PHONY : src/reconstruction/database.cc.o
 
-src/misc.i: src/misc.cc.i
-.PHONY : src/misc.i
+src/reconstruction/database.i: src/reconstruction/database.cc.i
+.PHONY : src/reconstruction/database.i
 
 # target to preprocess a source file
-src/misc.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/misc.cc.i
-.PHONY : src/misc.cc.i
+src/reconstruction/database.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/database.cc.i
+.PHONY : src/reconstruction/database.cc.i
 
-src/misc.s: src/misc.cc.s
-.PHONY : src/misc.s
+src/reconstruction/database.s: src/reconstruction/database.cc.s
+.PHONY : src/reconstruction/database.s
 
 # target to generate assembly for a file
-src/misc.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/misc.cc.s
-.PHONY : src/misc.cc.s
+src/reconstruction/database.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/database.cc.s
+.PHONY : src/reconstruction/database.cc.s
 
-src/mono_depth.o: src/mono_depth.cc.o
-.PHONY : src/mono_depth.o
+src/reconstruction/depth.o: src/reconstruction/depth.cc.o
+.PHONY : src/reconstruction/depth.o
 
 # target to build an object file
-src/mono_depth.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.o
-.PHONY : src/mono_depth.cc.o
+src/reconstruction/depth.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/depth.cc.o
+.PHONY : src/reconstruction/depth.cc.o
 
-src/mono_depth.i: src/mono_depth.cc.i
-.PHONY : src/mono_depth.i
+src/reconstruction/depth.i: src/reconstruction/depth.cc.i
+.PHONY : src/reconstruction/depth.i
 
 # target to preprocess a source file
-src/mono_depth.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.i
-.PHONY : src/mono_depth.cc.i
+src/reconstruction/depth.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/depth.cc.i
+.PHONY : src/reconstruction/depth.cc.i
 
-src/mono_depth.s: src/mono_depth.cc.s
-.PHONY : src/mono_depth.s
+src/reconstruction/depth.s: src/reconstruction/depth.cc.s
+.PHONY : src/reconstruction/depth.s
 
 # target to generate assembly for a file
-src/mono_depth.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mono_depth.cc.s
-.PHONY : src/mono_depth.cc.s
+src/reconstruction/depth.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/depth.cc.s
+.PHONY : src/reconstruction/depth.cc.s
 
-src/mseg_segmentation.o: src/mseg_segmentation.cc.o
-.PHONY : src/mseg_segmentation.o
+src/reconstruction/normal.o: src/reconstruction/normal.cc.o
+.PHONY : src/reconstruction/normal.o
 
 # target to build an object file
-src/mseg_segmentation.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mseg_segmentation.cc.o
-.PHONY : src/mseg_segmentation.cc.o
+src/reconstruction/normal.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/normal.cc.o
+.PHONY : src/reconstruction/normal.cc.o
 
-src/mseg_segmentation.i: src/mseg_segmentation.cc.i
-.PHONY : src/mseg_segmentation.i
+src/reconstruction/normal.i: src/reconstruction/normal.cc.i
+.PHONY : src/reconstruction/normal.i
 
 # target to preprocess a source file
-src/mseg_segmentation.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mseg_segmentation.cc.i
-.PHONY : src/mseg_segmentation.cc.i
+src/reconstruction/normal.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/normal.cc.i
+.PHONY : src/reconstruction/normal.cc.i
 
-src/mseg_segmentation.s: src/mseg_segmentation.cc.s
-.PHONY : src/mseg_segmentation.s
+src/reconstruction/normal.s: src/reconstruction/normal.cc.s
+.PHONY : src/reconstruction/normal.s
 
 # target to generate assembly for a file
-src/mseg_segmentation.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/mseg_segmentation.cc.s
-.PHONY : src/mseg_segmentation.cc.s
+src/reconstruction/normal.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/normal.cc.s
+.PHONY : src/reconstruction/normal.cc.s
 
-src/normal.o: src/normal.cc.o
-.PHONY : src/normal.o
+src/reconstruction/option_manager.o: src/reconstruction/option_manager.cc.o
+.PHONY : src/reconstruction/option_manager.o
 
 # target to build an object file
-src/normal.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/normal.cc.o
-.PHONY : src/normal.cc.o
+src/reconstruction/option_manager.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/option_manager.cc.o
+.PHONY : src/reconstruction/option_manager.cc.o
 
-src/normal.i: src/normal.cc.i
-.PHONY : src/normal.i
+src/reconstruction/option_manager.i: src/reconstruction/option_manager.cc.i
+.PHONY : src/reconstruction/option_manager.i
 
 # target to preprocess a source file
-src/normal.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/normal.cc.i
-.PHONY : src/normal.cc.i
+src/reconstruction/option_manager.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/option_manager.cc.i
+.PHONY : src/reconstruction/option_manager.cc.i
 
-src/normal.s: src/normal.cc.s
-.PHONY : src/normal.s
+src/reconstruction/option_manager.s: src/reconstruction/option_manager.cc.s
+.PHONY : src/reconstruction/option_manager.s
 
 # target to generate assembly for a file
-src/normal.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/normal.cc.s
-.PHONY : src/normal.cc.s
+src/reconstruction/option_manager.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/option_manager.cc.s
+.PHONY : src/reconstruction/option_manager.cc.s
 
-src/option_manager.o: src/option_manager.cc.o
-.PHONY : src/option_manager.o
+src/reconstruction/quality.o: src/reconstruction/quality.cc.o
+.PHONY : src/reconstruction/quality.o
 
 # target to build an object file
-src/option_manager.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/option_manager.cc.o
-.PHONY : src/option_manager.cc.o
+src/reconstruction/quality.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/quality.cc.o
+.PHONY : src/reconstruction/quality.cc.o
 
-src/option_manager.i: src/option_manager.cc.i
-.PHONY : src/option_manager.i
+src/reconstruction/quality.i: src/reconstruction/quality.cc.i
+.PHONY : src/reconstruction/quality.i
 
 # target to preprocess a source file
-src/option_manager.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/option_manager.cc.i
-.PHONY : src/option_manager.cc.i
+src/reconstruction/quality.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/quality.cc.i
+.PHONY : src/reconstruction/quality.cc.i
 
-src/option_manager.s: src/option_manager.cc.s
-.PHONY : src/option_manager.s
+src/reconstruction/quality.s: src/reconstruction/quality.cc.s
+.PHONY : src/reconstruction/quality.s
 
 # target to generate assembly for a file
-src/option_manager.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/option_manager.cc.s
-.PHONY : src/option_manager.cc.s
+src/reconstruction/quality.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/quality.cc.s
+.PHONY : src/reconstruction/quality.cc.s
 
-src/planeMerge.o: src/planeMerge.cpp.o
-.PHONY : src/planeMerge.o
+src/reconstruction/reconstruction.o: src/reconstruction/reconstruction.cc.o
+.PHONY : src/reconstruction/reconstruction.o
 
 # target to build an object file
-src/planeMerge.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/planeMerge.cpp.o
-.PHONY : src/planeMerge.cpp.o
+src/reconstruction/reconstruction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/reconstruction.cc.o
+.PHONY : src/reconstruction/reconstruction.cc.o
 
-src/planeMerge.i: src/planeMerge.cpp.i
-.PHONY : src/planeMerge.i
+src/reconstruction/reconstruction.i: src/reconstruction/reconstruction.cc.i
+.PHONY : src/reconstruction/reconstruction.i
 
 # target to preprocess a source file
-src/planeMerge.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/planeMerge.cpp.i
-.PHONY : src/planeMerge.cpp.i
+src/reconstruction/reconstruction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/reconstruction.cc.i
+.PHONY : src/reconstruction/reconstruction.cc.i
 
-src/planeMerge.s: src/planeMerge.cpp.s
-.PHONY : src/planeMerge.s
+src/reconstruction/reconstruction.s: src/reconstruction/reconstruction.cc.s
+.PHONY : src/reconstruction/reconstruction.s
 
 # target to generate assembly for a file
-src/planeMerge.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/planeMerge.cpp.s
-.PHONY : src/planeMerge.cpp.s
+src/reconstruction/reconstruction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction/reconstruction.cc.s
+.PHONY : src/reconstruction/reconstruction.cc.s
 
-src/plane_estimator.o: src/plane_estimator.cc.o
-.PHONY : src/plane_estimator.o
+src/semantics/mono_depth.o: src/semantics/mono_depth.cc.o
+.PHONY : src/semantics/mono_depth.o
 
 # target to build an object file
-src/plane_estimator.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_estimator.cc.o
-.PHONY : src/plane_estimator.cc.o
+src/semantics/mono_depth.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mono_depth.cc.o
+.PHONY : src/semantics/mono_depth.cc.o
 
-src/plane_estimator.i: src/plane_estimator.cc.i
-.PHONY : src/plane_estimator.i
+src/semantics/mono_depth.i: src/semantics/mono_depth.cc.i
+.PHONY : src/semantics/mono_depth.i
 
 # target to preprocess a source file
-src/plane_estimator.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_estimator.cc.i
-.PHONY : src/plane_estimator.cc.i
+src/semantics/mono_depth.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mono_depth.cc.i
+.PHONY : src/semantics/mono_depth.cc.i
 
-src/plane_estimator.s: src/plane_estimator.cc.s
-.PHONY : src/plane_estimator.s
+src/semantics/mono_depth.s: src/semantics/mono_depth.cc.s
+.PHONY : src/semantics/mono_depth.s
 
 # target to generate assembly for a file
-src/plane_estimator.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_estimator.cc.s
-.PHONY : src/plane_estimator.cc.s
+src/semantics/mono_depth.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mono_depth.cc.s
+.PHONY : src/semantics/mono_depth.cc.s
 
-src/plane_segmentation.o: src/plane_segmentation.cc.o
-.PHONY : src/plane_segmentation.o
+src/semantics/mseg_segmentation.o: src/semantics/mseg_segmentation.cc.o
+.PHONY : src/semantics/mseg_segmentation.o
 
 # target to build an object file
-src/plane_segmentation.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_segmentation.cc.o
-.PHONY : src/plane_segmentation.cc.o
+src/semantics/mseg_segmentation.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mseg_segmentation.cc.o
+.PHONY : src/semantics/mseg_segmentation.cc.o
 
-src/plane_segmentation.i: src/plane_segmentation.cc.i
-.PHONY : src/plane_segmentation.i
+src/semantics/mseg_segmentation.i: src/semantics/mseg_segmentation.cc.i
+.PHONY : src/semantics/mseg_segmentation.i
 
 # target to preprocess a source file
-src/plane_segmentation.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_segmentation.cc.i
-.PHONY : src/plane_segmentation.cc.i
+src/semantics/mseg_segmentation.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mseg_segmentation.cc.i
+.PHONY : src/semantics/mseg_segmentation.cc.i
 
-src/plane_segmentation.s: src/plane_segmentation.cc.s
-.PHONY : src/plane_segmentation.s
+src/semantics/mseg_segmentation.s: src/semantics/mseg_segmentation.cc.s
+.PHONY : src/semantics/mseg_segmentation.s
 
 # target to generate assembly for a file
-src/plane_segmentation.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/plane_segmentation.cc.s
-.PHONY : src/plane_segmentation.cc.s
+src/semantics/mseg_segmentation.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/mseg_segmentation.cc.s
+.PHONY : src/semantics/mseg_segmentation.cc.s
 
-src/quality.o: src/quality.cc.o
-.PHONY : src/quality.o
+src/semantics/plane_segmentation.o: src/semantics/plane_segmentation.cc.o
+.PHONY : src/semantics/plane_segmentation.o
 
 # target to build an object file
-src/quality.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/quality.cc.o
-.PHONY : src/quality.cc.o
+src/semantics/plane_segmentation.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/plane_segmentation.cc.o
+.PHONY : src/semantics/plane_segmentation.cc.o
 
-src/quality.i: src/quality.cc.i
-.PHONY : src/quality.i
+src/semantics/plane_segmentation.i: src/semantics/plane_segmentation.cc.i
+.PHONY : src/semantics/plane_segmentation.i
 
 # target to preprocess a source file
-src/quality.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/quality.cc.i
-.PHONY : src/quality.cc.i
+src/semantics/plane_segmentation.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/plane_segmentation.cc.i
+.PHONY : src/semantics/plane_segmentation.cc.i
 
-src/quality.s: src/quality.cc.s
-.PHONY : src/quality.s
+src/semantics/plane_segmentation.s: src/semantics/plane_segmentation.cc.s
+.PHONY : src/semantics/plane_segmentation.s
 
 # target to generate assembly for a file
-src/quality.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/quality.cc.s
-.PHONY : src/quality.cc.s
+src/semantics/plane_segmentation.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/plane_segmentation.cc.s
+.PHONY : src/semantics/plane_segmentation.cc.s
 
-src/random.o: src/random.cc.o
-.PHONY : src/random.o
+src/semantics/superpixels.o: src/semantics/superpixels.cc.o
+.PHONY : src/semantics/superpixels.o
 
 # target to build an object file
-src/random.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random.cc.o
-.PHONY : src/random.cc.o
+src/semantics/superpixels.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/superpixels.cc.o
+.PHONY : src/semantics/superpixels.cc.o
 
-src/random.i: src/random.cc.i
-.PHONY : src/random.i
+src/semantics/superpixels.i: src/semantics/superpixels.cc.i
+.PHONY : src/semantics/superpixels.i
 
 # target to preprocess a source file
-src/random.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random.cc.i
-.PHONY : src/random.cc.i
+src/semantics/superpixels.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/superpixels.cc.i
+.PHONY : src/semantics/superpixels.cc.i
 
-src/random.s: src/random.cc.s
-.PHONY : src/random.s
+src/semantics/superpixels.s: src/semantics/superpixels.cc.s
+.PHONY : src/semantics/superpixels.s
 
 # target to generate assembly for a file
-src/random.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random.cc.s
-.PHONY : src/random.cc.s
+src/semantics/superpixels.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/semantics/superpixels.cc.s
+.PHONY : src/semantics/superpixels.cc.s
 
-src/random_sampler.o: src/random_sampler.cc.o
-.PHONY : src/random_sampler.o
+src/utils/logging.o: src/utils/logging.cc.o
+.PHONY : src/utils/logging.o
 
 # target to build an object file
-src/random_sampler.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random_sampler.cc.o
-.PHONY : src/random_sampler.cc.o
+src/utils/logging.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/logging.cc.o
+.PHONY : src/utils/logging.cc.o
 
-src/random_sampler.i: src/random_sampler.cc.i
-.PHONY : src/random_sampler.i
+src/utils/logging.i: src/utils/logging.cc.i
+.PHONY : src/utils/logging.i
 
 # target to preprocess a source file
-src/random_sampler.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random_sampler.cc.i
-.PHONY : src/random_sampler.cc.i
+src/utils/logging.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/logging.cc.i
+.PHONY : src/utils/logging.cc.i
 
-src/random_sampler.s: src/random_sampler.cc.s
-.PHONY : src/random_sampler.s
+src/utils/logging.s: src/utils/logging.cc.s
+.PHONY : src/utils/logging.s
 
 # target to generate assembly for a file
-src/random_sampler.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/random_sampler.cc.s
-.PHONY : src/random_sampler.cc.s
+src/utils/logging.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/logging.cc.s
+.PHONY : src/utils/logging.cc.s
 
-src/reconstruction.o: src/reconstruction.cc.o
-.PHONY : src/reconstruction.o
+src/utils/misc.o: src/utils/misc.cc.o
+.PHONY : src/utils/misc.o
 
 # target to build an object file
-src/reconstruction.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction.cc.o
-.PHONY : src/reconstruction.cc.o
+src/utils/misc.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/misc.cc.o
+.PHONY : src/utils/misc.cc.o
 
-src/reconstruction.i: src/reconstruction.cc.i
-.PHONY : src/reconstruction.i
+src/utils/misc.i: src/utils/misc.cc.i
+.PHONY : src/utils/misc.i
 
 # target to preprocess a source file
-src/reconstruction.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction.cc.i
-.PHONY : src/reconstruction.cc.i
+src/utils/misc.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/misc.cc.i
+.PHONY : src/utils/misc.cc.i
 
-src/reconstruction.s: src/reconstruction.cc.s
-.PHONY : src/reconstruction.s
+src/utils/misc.s: src/utils/misc.cc.s
+.PHONY : src/utils/misc.s
 
 # target to generate assembly for a file
-src/reconstruction.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/reconstruction.cc.s
-.PHONY : src/reconstruction.cc.s
+src/utils/misc.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/misc.cc.s
+.PHONY : src/utils/misc.cc.s
 
-src/simple_merge.o: src/simple_merge.cc.o
-.PHONY : src/simple_merge.o
+src/utils/random.o: src/utils/random.cc.o
+.PHONY : src/utils/random.o
 
 # target to build an object file
-src/simple_merge.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/simple_merge.cc.o
-.PHONY : src/simple_merge.cc.o
+src/utils/random.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/random.cc.o
+.PHONY : src/utils/random.cc.o
 
-src/simple_merge.i: src/simple_merge.cc.i
-.PHONY : src/simple_merge.i
-
-# target to preprocess a source file
-src/simple_merge.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/simple_merge.cc.i
-.PHONY : src/simple_merge.cc.i
-
-src/simple_merge.s: src/simple_merge.cc.s
-.PHONY : src/simple_merge.s
-
-# target to generate assembly for a file
-src/simple_merge.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/simple_merge.cc.s
-.PHONY : src/simple_merge.cc.s
-
-src/superpixels.o: src/superpixels.cc.o
-.PHONY : src/superpixels.o
-
-# target to build an object file
-src/superpixels.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/superpixels.cc.o
-.PHONY : src/superpixels.cc.o
-
-src/superpixels.i: src/superpixels.cc.i
-.PHONY : src/superpixels.i
+src/utils/random.i: src/utils/random.cc.i
+.PHONY : src/utils/random.i
 
 # target to preprocess a source file
-src/superpixels.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/superpixels.cc.i
-.PHONY : src/superpixels.cc.i
+src/utils/random.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/random.cc.i
+.PHONY : src/utils/random.cc.i
 
-src/superpixels.s: src/superpixels.cc.s
-.PHONY : src/superpixels.s
-
-# target to generate assembly for a file
-src/superpixels.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/superpixels.cc.s
-.PHONY : src/superpixels.cc.s
-
-src/support_measurement.o: src/support_measurement.cc.o
-.PHONY : src/support_measurement.o
-
-# target to build an object file
-src/support_measurement.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/support_measurement.cc.o
-.PHONY : src/support_measurement.cc.o
-
-src/support_measurement.i: src/support_measurement.cc.i
-.PHONY : src/support_measurement.i
-
-# target to preprocess a source file
-src/support_measurement.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/support_measurement.cc.i
-.PHONY : src/support_measurement.cc.i
-
-src/support_measurement.s: src/support_measurement.cc.s
-.PHONY : src/support_measurement.s
+src/utils/random.s: src/utils/random.cc.s
+.PHONY : src/utils/random.s
 
 # target to generate assembly for a file
-src/support_measurement.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/support_measurement.cc.s
-.PHONY : src/support_measurement.cc.s
+src/utils/random.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SceneParser.dir/build.make CMakeFiles/SceneParser.dir/src/utils/random.cc.s
+.PHONY : src/utils/random.cc.s
 
 # Help Target
 help:
@@ -2202,30 +2202,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SceneParser"
-	@echo "... src/GCoptimization.o"
-	@echo "... src/GCoptimization.i"
-	@echo "... src/GCoptimization.s"
-	@echo "... src/LinkedBlockList.o"
-	@echo "... src/LinkedBlockList.i"
-	@echo "... src/LinkedBlockList.s"
-	@echo "... src/confidence.o"
-	@echo "... src/confidence.i"
-	@echo "... src/confidence.s"
-	@echo "... src/database.o"
-	@echo "... src/database.i"
-	@echo "... src/database.s"
-	@echo "... src/depth.o"
-	@echo "... src/depth.i"
-	@echo "... src/depth.s"
-	@echo "... src/graph.o"
-	@echo "... src/graph.i"
-	@echo "... src/graph.s"
-	@echo "... src/graph_cut.o"
-	@echo "... src/graph_cut.i"
-	@echo "... src/graph_cut.s"
-	@echo "... src/image.o"
-	@echo "... src/image.i"
-	@echo "... src/image.s"
+	@echo "... src/base/image.o"
+	@echo "... src/base/image.i"
+	@echo "... src/base/image.s"
+	@echo "... src/base/line3D.o"
+	@echo "... src/base/line3D.i"
+	@echo "... src/base/line3D.s"
+	@echo "... src/estimators/plane_estimator.o"
+	@echo "... src/estimators/plane_estimator.i"
+	@echo "... src/estimators/plane_estimator.s"
+	@echo "... src/exe/planeMerge.o"
+	@echo "... src/exe/planeMerge.i"
+	@echo "... src/exe/planeMerge.s"
+	@echo "... src/exe/simple_merge.o"
+	@echo "... src/exe/simple_merge.i"
+	@echo "... src/exe/simple_merge.s"
 	@echo "... src/lib/Graclus/metisLib/balance.o"
 	@echo "... src/lib/Graclus/metisLib/balance.i"
 	@echo "... src/lib/Graclus/metisLib/balance.s"
@@ -2400,66 +2391,75 @@ help:
 	@echo "... src/lib/cnpy/cnpy.o"
 	@echo "... src/lib/cnpy/cnpy.i"
 	@echo "... src/lib/cnpy/cnpy.s"
+	@echo "... src/lib/graphcuts/GCoptimization.o"
+	@echo "... src/lib/graphcuts/GCoptimization.i"
+	@echo "... src/lib/graphcuts/GCoptimization.s"
+	@echo "... src/lib/graphcuts/LinkedBlockList.o"
+	@echo "... src/lib/graphcuts/LinkedBlockList.i"
+	@echo "... src/lib/graphcuts/LinkedBlockList.s"
+	@echo "... src/lib/graphcuts/graph.o"
+	@echo "... src/lib/graphcuts/graph.i"
+	@echo "... src/lib/graphcuts/graph.s"
+	@echo "... src/lib/graphcuts/graph_cut.o"
+	@echo "... src/lib/graphcuts/graph_cut.i"
+	@echo "... src/lib/graphcuts/graph_cut.s"
+	@echo "... src/lib/graphcuts/maxflow.o"
+	@echo "... src/lib/graphcuts/maxflow.i"
+	@echo "... src/lib/graphcuts/maxflow.s"
 	@echo "... src/lib/seed/SeedsRevised.o"
 	@echo "... src/lib/seed/SeedsRevised.i"
 	@echo "... src/lib/seed/SeedsRevised.s"
 	@echo "... src/lib/seed/Tools.o"
 	@echo "... src/lib/seed/Tools.i"
 	@echo "... src/lib/seed/Tools.s"
-	@echo "... src/line3D.o"
-	@echo "... src/line3D.i"
-	@echo "... src/line3D.s"
-	@echo "... src/logging.o"
-	@echo "... src/logging.i"
-	@echo "... src/logging.s"
-	@echo "... src/maxflow.o"
-	@echo "... src/maxflow.i"
-	@echo "... src/maxflow.s"
-	@echo "... src/misc.o"
-	@echo "... src/misc.i"
-	@echo "... src/misc.s"
-	@echo "... src/mono_depth.o"
-	@echo "... src/mono_depth.i"
-	@echo "... src/mono_depth.s"
-	@echo "... src/mseg_segmentation.o"
-	@echo "... src/mseg_segmentation.i"
-	@echo "... src/mseg_segmentation.s"
-	@echo "... src/normal.o"
-	@echo "... src/normal.i"
-	@echo "... src/normal.s"
-	@echo "... src/option_manager.o"
-	@echo "... src/option_manager.i"
-	@echo "... src/option_manager.s"
-	@echo "... src/planeMerge.o"
-	@echo "... src/planeMerge.i"
-	@echo "... src/planeMerge.s"
-	@echo "... src/plane_estimator.o"
-	@echo "... src/plane_estimator.i"
-	@echo "... src/plane_estimator.s"
-	@echo "... src/plane_segmentation.o"
-	@echo "... src/plane_segmentation.i"
-	@echo "... src/plane_segmentation.s"
-	@echo "... src/quality.o"
-	@echo "... src/quality.i"
-	@echo "... src/quality.s"
-	@echo "... src/random.o"
-	@echo "... src/random.i"
-	@echo "... src/random.s"
-	@echo "... src/random_sampler.o"
-	@echo "... src/random_sampler.i"
-	@echo "... src/random_sampler.s"
-	@echo "... src/reconstruction.o"
-	@echo "... src/reconstruction.i"
-	@echo "... src/reconstruction.s"
-	@echo "... src/simple_merge.o"
-	@echo "... src/simple_merge.i"
-	@echo "... src/simple_merge.s"
-	@echo "... src/superpixels.o"
-	@echo "... src/superpixels.i"
-	@echo "... src/superpixels.s"
-	@echo "... src/support_measurement.o"
-	@echo "... src/support_measurement.i"
-	@echo "... src/support_measurement.s"
+	@echo "... src/optim/random_sampler.o"
+	@echo "... src/optim/random_sampler.i"
+	@echo "... src/optim/random_sampler.s"
+	@echo "... src/optim/support_measurement.o"
+	@echo "... src/optim/support_measurement.i"
+	@echo "... src/optim/support_measurement.s"
+	@echo "... src/reconstruction/confidence.o"
+	@echo "... src/reconstruction/confidence.i"
+	@echo "... src/reconstruction/confidence.s"
+	@echo "... src/reconstruction/database.o"
+	@echo "... src/reconstruction/database.i"
+	@echo "... src/reconstruction/database.s"
+	@echo "... src/reconstruction/depth.o"
+	@echo "... src/reconstruction/depth.i"
+	@echo "... src/reconstruction/depth.s"
+	@echo "... src/reconstruction/normal.o"
+	@echo "... src/reconstruction/normal.i"
+	@echo "... src/reconstruction/normal.s"
+	@echo "... src/reconstruction/option_manager.o"
+	@echo "... src/reconstruction/option_manager.i"
+	@echo "... src/reconstruction/option_manager.s"
+	@echo "... src/reconstruction/quality.o"
+	@echo "... src/reconstruction/quality.i"
+	@echo "... src/reconstruction/quality.s"
+	@echo "... src/reconstruction/reconstruction.o"
+	@echo "... src/reconstruction/reconstruction.i"
+	@echo "... src/reconstruction/reconstruction.s"
+	@echo "... src/semantics/mono_depth.o"
+	@echo "... src/semantics/mono_depth.i"
+	@echo "... src/semantics/mono_depth.s"
+	@echo "... src/semantics/mseg_segmentation.o"
+	@echo "... src/semantics/mseg_segmentation.i"
+	@echo "... src/semantics/mseg_segmentation.s"
+	@echo "... src/semantics/plane_segmentation.o"
+	@echo "... src/semantics/plane_segmentation.i"
+	@echo "... src/semantics/plane_segmentation.s"
+	@echo "... src/semantics/superpixels.o"
+	@echo "... src/semantics/superpixels.i"
+	@echo "... src/semantics/superpixels.s"
+	@echo "... src/utils/logging.o"
+	@echo "... src/utils/logging.i"
+	@echo "... src/utils/logging.s"
+	@echo "... src/utils/misc.o"
+	@echo "... src/utils/misc.i"
+	@echo "... src/utils/misc.s"
+	@echo "... src/utils/random.o"
+	@echo "... src/utils/random.i"
+	@echo "... src/utils/random.s"
 .PHONY : help
 
 

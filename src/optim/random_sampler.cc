@@ -2,8 +2,8 @@
 
 #include <numeric>
 
-#include "random_sampler.h"
-#include "random.h"
+#include "optim/random_sampler.h"
+#include "utils/random.h"
 
 
 RandomSampler::RandomSampler(const size_t num_samples)

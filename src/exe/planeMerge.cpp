@@ -54,12 +54,12 @@
 #include "lib/seed/Tools.h"
 #include "lib/cnpy/cnpy.h"
 
-#include "option_manager.h"
-#include "logging.h"
+#include "reconstruction/option_manager.h"
+#include "utils/logging.h"
 
-#include "database.h"
-#include "simple_merge.h"
-#include "superpixels.h"
+#include "reconstruction/database.h"
+#include "exe/simple_merge.h"
+#include "semantics/superpixels.h"
 
 
 int RunDatabase(int argc, char** argv)

@@ -6,18 +6,19 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include "simple_merge.h"
-#include "depth.h"
-#include "normal.h"
-#include "quality.h"
-#include "confidence.h"
+#include "reconstruction/depth.h"
+#include "reconstruction/normal.h"
+#include "reconstruction/quality.h"
+#include "reconstruction/confidence.h"
 
-#include "GCoptimization.h"
-#include "graph.h"
-#include "plane_segmentation.h"
-#include "mseg_segmentation.h"
-#include "mono_depth.h"
+#include "lib/graphcuts/GCoptimization.h"
+#include "lib/graphcuts/graph.h"
 
-#include "line3D.h"
+#include "semantics/plane_segmentation.h"
+#include "semantics/mseg_segmentation.h"
+#include "semantics/mono_depth.h"
+
+#include "base/line3D.h"
 
 #include "cost.h"
 
@@ -495,14 +496,19 @@ std::vector<cv::Vec3b> SimpleMerge::GenerateRandomColors(){
 
 
 void SimpleMerge::LoadSemanticLabel(Image& item, cv::Mat& cls, superpixels_t& list_supepixels){
+  
   // image name
   std::string item_name = GetPathBaseName(item.GetImagePath());
   
   // read mseg  && resize
   std::string  item_mseg_seg   = JoinPaths(_database.workspace, _database.mseg_seg_folder, item_name + ".png");
 
+  std::cout << item_name << std::endl;
+
   MsegSegmentation _mseg = MsegSegmentation(item_mseg_seg);
   cv::Mat semantics = _mseg.Read();
+
+  std::cout << semantics.size() << std::endl;
 
 
   // Set semantics labesl for each superpixels

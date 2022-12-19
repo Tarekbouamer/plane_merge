@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <fstream>
-#include "misc.h"
 #include <eigen3/Eigen/Geometry>
 
+#include "utils/misc.h"
 
 MonoDepth::MonoDepth(const std::string& mono_depth_path): 
 			_mono_depth_path(mono_depth_path) {};

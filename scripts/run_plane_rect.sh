@@ -1,7 +1,8 @@
 #!/bin/bash
 
 MODEL_PATH=thirdparty/PlaneRecNet/
-DATA_PATH=/media/dl/Data/datasets/multi_view_training_dslr_undistorted/
+Workspace=/media/dl/ssd_1tb/multi_view_training_dslr_undistorted/
+Workspace=/media/loc/ssd_1tb/multi_view_training_dslr_undistorted/
 
 cd $MODEL_PATH
 
@@ -10,12 +11,12 @@ Scenes="pipes office courtyard delivery_area electro facade kicker meadow playgr
 for scene in $Scenes;
 do
    
-    DATASET_PATH="$DATA_PATH/$scene"
+    DATASET_PATH="$Workspace/$scene"
 
     echo "PlaneRcnn run :: ${DATASET_PATH}"
 
     src_dir=$DATASET_PATH/dense/images/dslr_images_undistorted/
-    dst_dir=$DATASET_PATH/dense/stereo/plane_segmentation
+    dst_dir=$DATASET_PATH/dense/stereo/plane_segmentation/
     
     echo $src_dir
     

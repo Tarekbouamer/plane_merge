@@ -5,7 +5,7 @@
 #include <boost/filesystem/operations.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 
-#include "misc.h"
+#include "utils/misc.h"
 
 namespace config = boost::program_options;
 namespace fs = boost::filesystem;

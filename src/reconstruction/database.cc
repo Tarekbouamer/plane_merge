@@ -1,7 +1,7 @@
 #include <algorithm>
 
 #include "database.h"
-#include "misc.h"
+#include "utils/misc.h"
 
 Database::Database(const std::string& path){
 	workspace = GetParentPath(path); 

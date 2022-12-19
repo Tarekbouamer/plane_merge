@@ -1,1 +1,2 @@
 add_subdirectory(Graclus)
+add_subdirectory(graphcuts)

@@ -6,8 +6,7 @@
 #include <boost/property_map/property_map.hpp>
 #include <boost/typeof/typeof.hpp>
 
-#include "logging.h"
-
+#include "utils/logging.h"
 
 extern "C" {
   #include "lib/Graclus/metisLib/metis.h"

@@ -16,7 +16,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "database.h"
+#include "reconstruction/database.h"
 
 
 // set superpixels options 

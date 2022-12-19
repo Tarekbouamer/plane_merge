@@ -1,5 +1,5 @@
 #include "superpixels.h"
-#include "misc.h"
+#include "utils/misc.h"
 
 // image
 

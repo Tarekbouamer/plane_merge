@@ -1,5 +1,6 @@
-#include "image.h"
 #include <iostream>
+
+#include "image.h"
 
 Image::Image(const std::string& image_path,  const std::string& camera_path,
 						 const size_t width, const size_t height,

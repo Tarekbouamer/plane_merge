@@ -5,7 +5,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-#include "types.h"
+#include "utils/types.h"
 
 class Quality{
 

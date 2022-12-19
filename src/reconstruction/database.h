@@ -9,8 +9,9 @@
 #include <vector>
 #include <unordered_set>
 
-#include "image.h"
-#include "types.h"
+#include "base/image.h"
+
+#include "utils/types.h"
 
 class Database {
 	public:
